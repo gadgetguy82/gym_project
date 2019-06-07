@@ -31,15 +31,16 @@ class BookingTest < Minitest::Test
     @gym_class.save
     @booking = Booking.new(
       {
-        "time" => "10:00",
+        "start_time" => "10:00",
         "member_id" => @member.id,
         "gym_class_id" => @gym_class.id
       }
     )
+    @booking.save
   end
 
   def test_get_time
-    assert_equal("10:00", @booking.time)
+    assert_equal("10:00", @booking.start_time)
   end
 
   def test_get_member_id
