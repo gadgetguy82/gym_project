@@ -43,6 +43,11 @@ class GymClass
     return self.map_items(gym_classes_data)
   end
 
+  def delete_all
+    sql = "DELETE FROM classes"
+    SqlRunner.run(sql)
+  end
+
   def self.map_items(data)
     return data.map{|gym_class| GymClass.new(gym_class)}
   end
