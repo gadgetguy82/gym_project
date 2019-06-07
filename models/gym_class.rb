@@ -31,4 +31,10 @@ class GymClass
     SqlRunner.run(sql, values)
   end
 
+  def delete
+    sql = "DELETE FROM classes WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
 end
