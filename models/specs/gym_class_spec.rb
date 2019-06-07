@@ -11,6 +11,7 @@ class GymClassTest < Minitest::Test
         "room_capacity" => 30
       }
     )
+    @gym_class.save
   end
 
   def test_get_type
