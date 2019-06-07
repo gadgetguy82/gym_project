@@ -47,7 +47,7 @@ class Booking
   def self.find(id)
     sql = "SELECT * FROM bookings WHERE id = $1"
     values = [id]
-    booking_data = SqlRunner.run(sql, values)
+    booking_data = SqlRunner.run(sql, values)[0]
     return Booking.new(booking_data)
   end
 

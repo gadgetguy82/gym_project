@@ -7,9 +7,9 @@ require_relative("../gym_class")
 class BookingTest < Minitest::Test
 
   def setup
-    # Booking.delete_all
-    # GymClass.delete_all
-    # Member.delete_all
+    Booking.delete_all
+    GymClass.delete_all
+    Member.delete_all
     @member = Member.new(
       {
         "first_name" => "Joe",
