@@ -43,7 +43,7 @@ class GymClass
     return self.map_items(gym_classes_data)
   end
 
-  def delete_all
+  def self.delete_all
     sql = "DELETE FROM classes"
     SqlRunner.run(sql)
   end

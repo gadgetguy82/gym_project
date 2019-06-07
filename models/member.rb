@@ -57,7 +57,7 @@ class Member
     return Member.new(member_data)
   end
 
-  def delete_all
+  def self.delete_all
     sql = "DELETE FROM members"
     SqlRunner.run(sql)
   end
