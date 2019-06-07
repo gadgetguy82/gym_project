@@ -5,6 +5,7 @@ require_relative("../member")
 class MemberTest < Minitest::Test
 
   def setup
+    Member.delete_all
     @member = Member.new(
       {
         "first_name" => "Joe",

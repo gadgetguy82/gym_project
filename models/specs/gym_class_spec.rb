@@ -5,6 +5,7 @@ require_relative("../gym_class")
 class GymClassTest < Minitest::Test
 
   def setup
+    GymClass.delete_all
     @gym_class = GymClass.new(
       {
         "type" => "Yoga",
