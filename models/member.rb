@@ -57,6 +57,11 @@ class Member
     return Member.new(member_data)
   end
 
+  def delete_all
+    sql = "DELETE FROM members"
+    SqlRunner.run(sql)
+  end
+
   def self.map_items(data)
     return data.map{|member| Member.new(member)}
   end
