@@ -44,6 +44,13 @@ class Booking
     return self.map_items(bookings_data)
   end
 
+  def find(id)
+    sql = "SELECT * FROM bookings WHERE id = $1"
+    values = [id]
+    booking_data = SqlRunner.run(sql, values)
+    return Booking.new(booking_data)
+  end
+
   def self.map_items(data)
     return data.map{|booking| Booking.new(booking)}
   end
