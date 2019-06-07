@@ -27,6 +27,17 @@ class Member
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
+  def update
+    sql = "UPDATE members SET (
+      first_name, last_name, date_of_birth, street,
+      city, postcode, phone
+    ) = (
+      $1, $2, $3, $4, $5, $6, $7
+    ) WHERE id = $8"
+    values = [@first_name, @last_name, @date_of_birth, @street, @city, @postcode, @phone, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.all
     sql = "SELECT * FROM members"
     members_data = SqlRunner.run(sql)

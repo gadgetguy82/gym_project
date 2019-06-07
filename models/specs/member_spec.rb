@@ -16,6 +16,7 @@ class MemberTest < Minitest::Test
         "phone" => "0131 223 4455"
       }
     )
+    @member.save
   end
 
   def test_get_first_name
