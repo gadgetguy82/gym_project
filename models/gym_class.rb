@@ -43,6 +43,13 @@ class GymClass
     return self.map_items(gym_classes_data)
   end
 
+  def find(id)
+    sql = "SELECT * FROM classes WHERE id = $1"
+    values = [id]
+    gym_class_data = SqlRunner.run(sql, values)[0]
+    return GymClass.new(gym_class_data)
+  end
+
   def self.delete_all
     sql = "DELETE FROM classes"
     SqlRunner.run(sql)
