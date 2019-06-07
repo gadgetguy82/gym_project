@@ -16,4 +16,32 @@ class Member
     @phone = options["phone"]
   end
 
+  def save
+    sql = "INSERT INTO members (
+      first_name, last_name, date_of_birth, street,
+      city, postcode, phone
+    ) VALUES (
+      $1, $2, $3, $4, $5, $6, $7
+    ) RETURNING *"
+    values = [@first_name, @last_name, @date_of_birth, @street, @city, @postcode, @phone]
+    @id = SqlRunner.run(sql, values)[0]["id"].to_i
+  end
+
+  def self.all
+    sql = "SELECT * FROM members"
+    members_data = SqlRunner.run(sql)
+    return self.map_items(members_data)
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM members WHERE id = $1"
+    values = [id]
+    member_data = SqlRunner.run(sql, values)[0]
+    return Member.new(member_data)
+  end
+
+  def self.map_items(data)
+    return data.map{|member| Member.new(member)}
+  end
+
 end
