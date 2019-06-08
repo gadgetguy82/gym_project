@@ -5,7 +5,9 @@
 </nav>
 <% @gym_classes.each do |gym_class| %>
   <p><%= gym_class.type %>
-  <%= gym_class.room_capacity%></p>
+    <%= gym_class.start_time %>
+    <%= gym_class.room_capacity%>
+  </p>
   <p><a href="/gym_classes/<%= gym_class.id %>">Show details</a></p>
   <hr>
 <% end %>

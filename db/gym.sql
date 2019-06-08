@@ -16,12 +16,12 @@ CREATE TABLE members (
 CREATE TABLE gym_classes (
   id SERIAL8 PRIMARY KEY,
   type VARCHAR(255),
+  start_time VARCHAR(255),
   room_capacity INT2
 );
 
 CREATE TABLE bookings (
   id SERIAL8 PRIMARY KEY,
-  start_time VARCHAR(255),
   member_id INT8 REFERENCES members(id) ON DELETE CASCADE,
   gym_class_id INT8 REFERENCES gym_classes(id) ON DELETE CASCADE
 );

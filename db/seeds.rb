@@ -47,18 +47,21 @@ member3.save
 gym_class1 = GymClass.new(
   {
     "type" => "Yoga",
+    "start_time" => "10:00",
     "room_capacity" => 30
   }
 )
 gym_class2 = GymClass.new(
   {
     "type" => "Zumba",
+    "start_time" => "11:00",
     "room_capacity" => 20
   }
 )
 gym_class3 = GymClass.new(
   {
     "type" => "Calisthenics",
+    "start_time" => "14:00",
     "room_capacity" => 15
   }
 )
@@ -68,28 +71,24 @@ gym_class3.save
 
 booking1 = Booking.new(
   {
-    "start_time" => "10:00",
     "member_id" => member1.id,
     "gym_class_id" => gym_class1.id
   }
 )
 booking2 = Booking.new(
   {
-    "start_time" => "11:00",
     "member_id" => member1.id,
     "gym_class_id" => gym_class2.id
   }
 )
 booking3 = Booking.new(
   {
-    "start_time" => "14:00",
     "member_id" => member2.id,
     "gym_class_id" => gym_class3.id
   }
 )
 booking4 = Booking.new(
   {
-    "start_time" => "16:00",
     "member_id" => member3.id,
     "gym_class_id" => gym_class3.id
   }

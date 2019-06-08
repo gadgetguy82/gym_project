@@ -28,6 +28,12 @@ get "/members/:id/edit" do
   erb(:"members/new")
 end
 
+post "/members/:id/edit" do
+  @member = Member.new(params)
+  @member.update
+  erb(:"/members/show")
+end
+
 post "/members/:id/delete" do
   member = Member.find(params[:id])
   member.delete

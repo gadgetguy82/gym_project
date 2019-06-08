@@ -3,6 +3,10 @@
   <input type="text" name="type" id="type"
   value="<%= @gym_class.type if @gym_class %>">
 
+  <label for="start-time">Time:</label>
+  <input type="text" name="start_time" id="start-time"
+  value="<%= @gym_class.start_time if @gym_class %>">
+
   <label for="room_capacity">Room Capacity</label>
   <input type="number" name="room_capacity" id="room_capacity"
   value="<%= @gym_class.room_capacity if @gym_class %>">

@@ -1,4 +1,6 @@
-<p><%= @gym_class.type %> Class <%= @gym_class.room_capacity %></p>
+<p><%= @gym_class.type %> Class
+  <%= @gym_class.start_time %>
+  <%= @gym_class.room_capacity %></p>
 <p><a href="/gym_classes/<%= @gym_class.id %>/edit">Edit details</a></p>
 <p><form action="/gym_classes/<%= @gym_class.id %>/delete"
   method="post">

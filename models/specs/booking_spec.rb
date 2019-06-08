@@ -25,22 +25,18 @@ class BookingTest < Minitest::Test
     @gym_class = GymClass.new(
       {
         "type" => "Yoga",
+        "start_time" => "10:00",
         "room_capacity" => 30
       }
     )
     @gym_class.save
     @booking = Booking.new(
       {
-        "start_time" => "10:00",
         "member_id" => @member.id,
         "gym_class_id" => @gym_class.id
       }
     )
     @booking.save
-  end
-
-  def test_get_time
-    assert_equal("10:00", @booking.start_time)
   end
 
   def test_get_member_id

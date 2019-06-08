@@ -1,4 +1,4 @@
-<form action="/members/new" method="post">
+<form action="/members/<% if @member %><%= @member.id %>/edit<% else %><%= "new" %><% end %>" method="post">
   <label for="first-name">First Name:</label>
   <input type="text" name="first_name" id="first-name"
   value="<%= @member.first_name if @member %>">

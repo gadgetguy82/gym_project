@@ -5,8 +5,6 @@
   <p><%= gym_class.room_capacity %> spaces left</p>
   <p>
     <form action="/bookings/<%= @member.id %>" method="post">
-      <!-- Refactor this later -->
-      <input type="hidden" name="start_time" value="16:00">
       <input type="hidden" name="member_id" value="<%= @member.id %>">
       <input type="hidden" name="gym_class_id" value="<%= gym_class.id %>">
       <input type="submit" value="Book Place">

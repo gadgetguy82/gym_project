@@ -4,31 +4,32 @@ require_relative("member")
 class GymClass
 
   attr_reader :id
-  attr_accessor :type, :room_capacity
+  attr_accessor :type, :start_time, :room_capacity
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
     @type = options["type"]
+    @start_time = options["start_time"]
     @room_capacity = options["room_capacity"]
   end
 
   def save
     sql = "INSERT INTO gym_classes (
-      type, room_capacity
+      type, start_time, room_capacity
     ) VALUES (
-      $1, $2
+      $1, $2, $3
     ) RETURNING *"
-    values = [@type, @room_capacity]
+    values = [@type, @start_time, @room_capacity]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
   def update
     sql = "UPDATE gym_classes SET (
-      type, room_capacity
+      type, start_time, room_capacity
     ) = (
-      $1, $2
-    ) WHERE id = $3"
-    values = [@type, @room_capacity, @id]
+      $1, $2, $3
+    ) WHERE id = $4"
+    values = [@type, @start_time, @room_capacity, @id]
     SqlRunner.run(sql, values)
   end
 
