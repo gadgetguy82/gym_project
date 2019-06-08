@@ -1,0 +1,11 @@
+<nav>
+  <ul>
+    <li><a href="/gym_classes/new">Create Class</a></li>
+  </ul>
+</nav>
+<% @gym_classes.each do |gym_class| %>
+  <p><%= gym_class.type %>
+  <%= gym_class.room_capacity%></p>
+  <p><a href="/gym_classes/<%= gym_class.id %>">Show details</a></p>
+  <hr>
+<% end %>

@@ -1,0 +1,11 @@
+<form action="/gym_classes/new" method="post">
+  <label for="type">Type:</label>
+  <input type="text" name="type" id="type"
+  value="<%= @gym_class.type if @gym_class %>">
+
+  <label for="room_capacity">Room Capacity</label>
+  <input type="number" name="room_capacity" id="room_capacity"
+  value="<%= @gym_class.room_capacity if @gym_class %>">
+
+  <input type="submit" value="Create Class">
+</form>
