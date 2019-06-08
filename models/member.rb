@@ -53,6 +53,14 @@ class Member
     return GymClass.map_items(gym_classes_data)
   end
 
+  def pretty_name
+    return "#{first_name} #{last_name}"
+  end
+
+  def pretty_address
+    return "#{street}<br\>#{city}<br\>#{postcode}"
+  end
+
   def self.all
     sql = "SELECT * FROM members"
     members_data = SqlRunner.run(sql)

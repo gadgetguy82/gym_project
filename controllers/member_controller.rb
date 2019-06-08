@@ -21,3 +21,8 @@ get "/members/:id" do
   @member = Member.new(params)
   erb(:"members/show")
 end
+
+get "/members/:id/edit" do
+  @member = Member.find(params[:id])
+  erb(:"members/new")
+end
