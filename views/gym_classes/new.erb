@@ -1,4 +1,4 @@
-<form action="/gym_classes/new" method="post">
+<form action="/gym_classes/<% if @gym_class %><%= @gym_class.id %>/edit<% else %><%= "new" %><% end %>" method="post">
   <label for="type">Type:</label>
   <input type="text" name="type" id="type"
   value="<%= @gym_class.type if @gym_class %>">
@@ -11,5 +11,5 @@
   <input type="number" name="room_capacity" id="room_capacity"
   value="<%= @gym_class.room_capacity if @gym_class %>">
 
-  <input type="submit" value="Create Class">
+  <input type="submit" value="Save Class">
 </form>

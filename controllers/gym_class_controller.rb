@@ -28,6 +28,12 @@ get "/gym_classes/:id/edit" do
   erb(:"gym_classes/new")
 end
 
+post "/gym_classes/:id/edit" do
+  @gym_class = GymClass.new(params)
+  @gym_class.update
+  erb(:"gym_classes/show")
+end
+
 post "/gym_classes/:id/delete" do
   gym_class = GymClass.find(params[:id])
   gym_class.delete
