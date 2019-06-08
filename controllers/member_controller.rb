@@ -3,10 +3,21 @@ require("sinatra/contrib/all")
 require_relative("../models/member")
 also_reload("../models/*")
 
-get "/member" do
+get "/members" do
   erb(:"members/index")
 end
 
-get "/member/new" do
+get "/members/new" do
   erb(:"members/new")
+end
+
+post "/members/new" do
+  @member = Member.new(params)
+  @member.save
+  erb(:"members/show")
+end
+
+get "/members/:id" do
+  @member = Member.new(params)
+  erb(:"members/show")
 end

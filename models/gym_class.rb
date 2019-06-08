@@ -1,4 +1,5 @@
 require_relative("../db/sql_runner")
+require_relative("member")
 
 class GymClass
 
@@ -35,6 +36,14 @@ class GymClass
     sql = "DELETE FROM gym_classes WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def members
+    sql = "SELECT m.* FROM members m INNER JOIN bookings b
+    ON m.id = b.member_id WHERE b.gym_class_id = $1"
+    values = [@id]
+    members_data = SqlRunner.run(sql, values)
+    return Member.map_items(members_data)
   end
 
   def self.all

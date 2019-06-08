@@ -49,7 +49,7 @@ class Member
     sql = "SELECT gc.* FROM gym_classes gc INNER JOIN bookings b
     ON gc.id = b.gym_class_id WHERE b.member_id = $1"
     values = [@id]
-    gym_classes_data = SqlRunner(sql, values)
+    gym_classes_data = SqlRunner.run(sql, values)
     return GymClass.map_items(gym_classes_data)
   end
 
