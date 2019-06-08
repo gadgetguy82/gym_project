@@ -3,4 +3,11 @@
     <li><a href="/members/new">Add Member</a></li>
   </ul>
 </nav>
-<p>Content for member index page</p>
+<% @members.each do |member| %>
+  <p><%= member.pretty_name %></p>
+  <p><%= member.date_of_birth %></p>
+  <p><%= member.pretty_address %></p>
+  <p><%= member.phone %></p>
+  <p><a href="/members/<%= member.id %>">Show details</a></p>
+  <hr>
+<% end %>
