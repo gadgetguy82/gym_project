@@ -3,6 +3,9 @@
 <p><%= @member.pretty_address %></p>
 <p><%= @member.phone %></p>
 <p><a href="/members/<%= @member.id %>/edit">Edit details</a></p>
+
+<p><a href="/bookings/<%= @member.id %>">Book a class</a></p>
+
 <p><form action="/members/<%= @member.id %>/delete" method="post">
   <input type="submit" value="Delete Member">
 </form></p>

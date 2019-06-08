@@ -1,0 +1,11 @@
+<h1>Booking</h1>
+
+<% @gym_classes.each do |gym_class| %>
+  <p><%= gym_class.type %> Class</p>
+  <p><%= gym_class.room_capacity %> spaces left</p>
+  <p>
+    <form action="/bookings/<%= @member.id %>/ <%= gym_class.id %>" value="post">
+      <input type="submit" value="Book Place">
+    </form>
+  </p>
+<% end %>
