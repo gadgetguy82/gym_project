@@ -1,35 +1,38 @@
 require_relative("../db/sql_runner")
 require_relative("member")
+require_relative("room")
 
 class GymClass
 
   attr_reader :id
-  attr_accessor :type, :start_time, :room_capacity
+  attr_accessor :type, :start_time, :duration, :spaces, :room_id
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
     @type = options["type"]
     @start_time = options["start_time"]
-    @room_capacity = options["room_capacity"]
+    @duration = options["duration"]
+    @spaces = options["spaces"]
+    @room_id = options["room_id"]
   end
 
   def save
     sql = "INSERT INTO gym_classes (
-      type, start_time, room_capacity
+      type, start_time, duration, spaces, room_id
     ) VALUES (
-      $1, $2, $3
+      $1, $2, $3, $4, $5
     ) RETURNING *"
-    values = [@type, @start_time, @room_capacity]
+    values = [@type, @start_time, @duration, @spaces, @room_id]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
   def update
     sql = "UPDATE gym_classes SET (
-      type, start_time, room_capacity
+      type, start_time, duration, spaces, room_id
     ) = (
-      $1, $2, $3
-    ) WHERE id = $4"
-    values = [@type, @start_time, @room_capacity, @id]
+      $1, $2, $3, $4
+    ) WHERE id = $5"
+    values = [@type, @start_time, @duration, @spaces, @room_id, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -45,6 +48,19 @@ class GymClass
     values = [@id]
     members_data = SqlRunner.run(sql, values)
     return Member.map_items(members_data)
+  end
+
+  def room
+    sql = "SELECT r.* FROM rooms INNER JOIN gym_classes gc
+    ON r.id = gc.room_id WHERE gc.id = $1"
+    values = [@id]
+    room_data = SqlRunner.run(sql, values)[0]
+    return Room.new(room_data)
+  end
+
+  def booked_space
+    @spaces -= 1
+    update
   end
 
   def self.all

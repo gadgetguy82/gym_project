@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS bookings;
 DROP TABLE IF EXISTS gym_classes;
 DROP TABLE IF EXISTS members;
+DROP TABLE IF EXISTS rooms;
 
 CREATE TABLE members (
   id SERIAL8 PRIMARY KEY,
@@ -13,11 +14,20 @@ CREATE TABLE members (
   phone VARCHAR(255)
 );
 
+CREATE TABLE rooms (
+  id SERIAL2 PRIMARY KEY,
+  name VARCHAR(255),
+  capacity INT2,
+  reserved BOOLEAN
+);
+
 CREATE TABLE gym_classes (
   id SERIAL8 PRIMARY KEY,
   type VARCHAR(255),
   start_time VARCHAR(255),
-  room_capacity INT2
+  duration VARCHAR(255),
+  spaces INT2,
+  room_id INT2 REFERENCES rooms(id) ON DELETE CASCADE
 );
 
 CREATE TABLE bookings (

@@ -2,10 +2,29 @@ require("pry")
 require_relative("../models/member")
 require_relative("../models/gym_class")
 require_relative("../models/booking")
+require_relative("../models/room")
 
 Booking.delete_all
 GymClass.delete_all
 Member.delete_all
+Room.delete_all
+
+room1 = Room.new(
+  {
+    "name" => "Alpha",
+    "capacity" => 30,
+    "reserved" => false
+  }
+)
+room2 = Room.new(
+  {
+    "name" => "Bravo",
+    "capacity" => 20,
+    "reserved" => false
+  }
+)
+room1.save
+room2.save
 
 member1 = Member.new(
   {
@@ -48,21 +67,27 @@ gym_class1 = GymClass.new(
   {
     "type" => "Yoga",
     "start_time" => "10:00",
-    "room_capacity" => 30
+    "duration" => "1 hour",
+    "spaces" => room1.capacity,
+    "room_id" => room1.id
   }
 )
 gym_class2 = GymClass.new(
   {
     "type" => "Zumba",
     "start_time" => "11:00",
-    "room_capacity" => 20
+    "duration" => "30 minutes",
+    "spaces" => room2.capacity,
+    "room_id" => room2.id
   }
 )
 gym_class3 = GymClass.new(
   {
     "type" => "Calisthenics",
     "start_time" => "14:00",
-    "room_capacity" => 15
+    "duration" => "45 minutes",
+    "spaces" => room1.capacity,
+    "room_id" => room1.id
   }
 )
 gym_class1.save

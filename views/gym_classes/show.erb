@@ -1,6 +1,17 @@
-<p><%= @gym_class.type %> Class
+<p>
+  <%= @gym_class.type %> Class
   <%= @gym_class.start_time %>
-  <%= @gym_class.room_capacity %></p>
+  <%= @gym_class.duration %>
+  <%= @gym_class.spaces %>
+  <%= @gym_class.room.name %>
+</p>
+
+  <p>
+    <% @gym_class.members.each do |member| %>
+      <%= member.pretty_name %>
+    <% end %>
+  </p>
+
 <p><a href="/gym_classes/<%= @gym_class.id %>/edit">Edit details</a></p>
 <p><form action="/gym_classes/<%= @gym_class.id %>/delete"
   method="post">
