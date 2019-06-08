@@ -42,7 +42,7 @@ class Booking
 
   def member
     sql = "SELECT m.* FROM members m INNER JOIN bookings b
-    ON m.id = b.member_id WHERE id = $1"
+    ON m.id = b.member_id WHERE b.id = $1"
     values = [@id]
     member_data = SqlRunner.run(sql, values)[0]
     return Member.new(member_data)
@@ -50,7 +50,7 @@ class Booking
 
   def gym_class
     sql = "SELECT gc.* FROM gym_classes gc INNER JOIN bookings b
-    ON gc.id = b.gym_class_id WHERE id = $1"
+    ON gc.id = b.gym_class_id WHERE b.id = $1"
     values = [@id]
     gym_class_data = SqlRunner.run(sql, values)[0]
     return GymClass.new(gym_class_data)
