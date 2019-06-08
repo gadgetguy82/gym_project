@@ -21,3 +21,9 @@ post "/bookings/:member_id" do
   @booking.save
   erb(:"bookings/show")
 end
+
+post "/bookings/:id/delete" do
+  booking = Booking.find(params[:id])
+  booking.delete
+  redirect to("/bookings")
+end
