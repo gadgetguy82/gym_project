@@ -1,6 +1,7 @@
 require("sinatra")
 require("sinatra/contrib/all")
 require_relative("../models/gym_class")
+require_relative("../models/room")
 also_reload("../models/*")
 
 get "/gym_classes" do
@@ -9,6 +10,7 @@ get "/gym_classes" do
 end
 
 get "/gym_classes/new" do
+  @rooms = Room.all
   erb(:"gym_classes/new")
 end
 
@@ -24,6 +26,7 @@ get "/gym_classes/:id" do
 end
 
 get "/gym_classes/:id/edit" do
+  @rooms = Room.all
   @gym_class = GymClass.find(params[:id])
   erb(:"gym_classes/new")
 end

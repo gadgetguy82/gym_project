@@ -8,8 +8,15 @@
   value="<%= @gym_class.start_time if @gym_class %>">
 
   <label for="duration">Duration:</label>
-  <input type="number" name="duration" id="duration"
+  <input type="text" name="duration" id="duration"
   value="<%= @gym_class.duration if @gym_class %>">
+
+  <label for="room">Room:</label>
+  <select name="room_id" id="room">
+    <% @rooms.each do |room| %>
+      <option value="<%= room.id %>" <%= "selected" if @gym_class.id == room.id %>><%= room.name %></option>
+    <% end %>
+  </select>
 
   <input type="submit" value="Save Class">
 </form>

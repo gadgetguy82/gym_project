@@ -51,7 +51,7 @@ class GymClass
   end
 
   def room
-    sql = "SELECT r.* FROM rooms INNER JOIN gym_classes gc
+    sql = "SELECT r.* FROM rooms r INNER JOIN gym_classes gc
     ON r.id = gc.room_id WHERE gc.id = $1"
     values = [@id]
     room_data = SqlRunner.run(sql, values)[0]
