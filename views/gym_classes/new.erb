@@ -14,7 +14,7 @@
   <label for="room">Room:</label>
   <select name="room_id" id="room">
     <% @rooms.each do |room| %>
-      <option value="<%= room.id %>" <%= "selected" if @gym_class.id == room.id %>><%= room.name %></option>
+      <option value="<%= room.id %>" <% if @gym_class %><% if @gym_class.id == room.id %><%= "selected" %><% end %><% end %>><%= room.name %></option>
     <% end %>
   </select>
 
