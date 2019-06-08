@@ -19,6 +19,7 @@ end
 post "/bookings/:member_id" do
   @booking = Booking.new(params)
   @booking.save
+  @booking.gym_class.booked_space
   erb(:"bookings/show")
 end
 

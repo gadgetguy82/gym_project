@@ -12,7 +12,7 @@ class GymClass
     @type = options["type"]
     @start_time = options["start_time"]
     @duration = options["duration"]
-    @spaces = options["spaces"]
+    @spaces = options["spaces"].to_i
     @room_id = options["room_id"]
   end
 
@@ -30,8 +30,8 @@ class GymClass
     sql = "UPDATE gym_classes SET (
       type, start_time, duration, spaces, room_id
     ) = (
-      $1, $2, $3, $4
-    ) WHERE id = $5"
+      $1, $2, $3, $4, $5
+    ) WHERE id = $6"
     values = [@type, @start_time, @duration, @spaces, @room_id, @id]
     SqlRunner.run(sql, values)
   end
