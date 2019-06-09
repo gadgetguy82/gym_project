@@ -35,6 +35,10 @@
   text-align: center;
 }
 
+.side_nav li:hover {
+  background-color: #000000;
+}
+
 .side_nav a:hover {
   color: #F1F1F1;
 }

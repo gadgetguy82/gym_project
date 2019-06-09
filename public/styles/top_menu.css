@@ -1,0 +1,12 @@
+.top_nav {
+  height: 50px;
+  background: #A9A9A9;
+}
+
+.top_nav {
+  list-style-type: none;
+}
+
+.top_nav a {
+  display: block;
+}

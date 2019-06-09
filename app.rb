@@ -9,3 +9,7 @@ require_relative("controllers/instructor_controller")
 get "/" do
   erb(:index)
 end
+
+get "/about_us" do
+  erb(:about_us)
+end
