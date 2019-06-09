@@ -3,6 +3,7 @@ require_relative("../models/member")
 require_relative("../models/gym_class")
 require_relative("../models/booking")
 require_relative("../models/room")
+require_relative("../models/instructor")
 
 Booking.delete_all
 GymClass.delete_all
