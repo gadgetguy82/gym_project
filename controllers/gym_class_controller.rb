@@ -34,6 +34,7 @@ end
 
 get "/gym_classes/:id/edit" do
   @rooms = Room.all
+  @instructors = Instructor.all
   @gym_class = GymClass.find(params[:id])
   erb(:"gym_classes/new")
 end
