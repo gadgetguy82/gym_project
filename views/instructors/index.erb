@@ -1,4 +1,5 @@
 <% @instructors.each do |instructor| %>
   <%= instructor.pretty_name %>
+  <p><a href="/instructors/<%= instructor.id %>">Show details</a></p>
   <hr>
 <% end %>

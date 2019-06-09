@@ -1,0 +1,5 @@
+<p><%= @instructor.pretty_name %></p>
+<p><a href="/instructors/<%= @instructor.id %>/edit">Edit details</a></p>
+<p><form action="/instructors/<%= @instructor.id %>/delete" method="post">
+  <input type="submit" value="Delete Instructor">
+</form></p>

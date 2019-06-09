@@ -1,5 +1,6 @@
-body {
+html {
   background: linear-gradient(to bottom right, #0099CC, #F1F1F1);
+  background-attachment: fixed;
 }
 
 .view {

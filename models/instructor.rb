@@ -19,7 +19,7 @@ class Instructor
       $1, $2
     ) RETURNING *"
     values = [@first_name, @last_name]
-    @id = SqlRunner.run(sql, values)[0]["id"]
+    @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
   def update
@@ -58,7 +58,7 @@ class Instructor
   def self.find(id)
     sql = "SELECT * FROM instructors WHERE id = $1"
     values = [id]
-    instructor_data = SqlRunner.run(sql, values)
+    instructor_data = SqlRunner.run(sql, values)[0]
     return Instructor.new(instructor_data)
   end
 
