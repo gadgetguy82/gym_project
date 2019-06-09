@@ -37,9 +37,26 @@ class Instructor
     SqlRunner.run(sql, values)
   end
 
+  def self.all
+    sql = "SELECT * FROM instructors"
+    instructors_data = SqlRunner.run(sql)
+    return self.map_items(instructors_data)
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM instructors WHERE id = $1"
+    values = [id]
+    instructor_data = SqlRunner.run(sql, values)
+    return Instructor.new(instructor_data)
+  end
+
   def self.delete_all
     sql = "DELETE FROM instructors"
     SqlRunner.run(sql)
+  end
+
+  def self.map_items(data)
+    return data.map{|instructor| Instructor.new(instructor)}
   end
 
 end
