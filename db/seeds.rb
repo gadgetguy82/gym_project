@@ -8,6 +8,22 @@ Booking.delete_all
 GymClass.delete_all
 Room.delete_all
 Member.delete_all
+Instructor.delete_all
+
+instructor1 = Instructor.new(
+  {
+    "first_name" => "George",
+    "last_name" => "Clooney"
+  }
+)
+instructor2 = Instructor.new(
+  {
+    "first_name" => "Brad",
+    "last_name" => "Pitt"
+  }
+)
+instructor1.save
+instructor2.save
 
 room1 = Room.new(
   {
@@ -68,7 +84,8 @@ gym_class1 = GymClass.new(
     "start_time" => "10:00",
     "duration" => "1 hour",
     "spaces" => room1.capacity,
-    "room_id" => room1.id
+    "room_id" => room1.id,
+    "instructor_id" => instructor1.id
   }
 )
 gym_class2 = GymClass.new(
@@ -78,7 +95,8 @@ gym_class2 = GymClass.new(
     "start_time" => "11:00",
     "duration" => "30 minutes",
     "spaces" => room2.capacity,
-    "room_id" => room2.id
+    "room_id" => room2.id,
+    "instructor_id" => instructor1.id
   }
 )
 gym_class3 = GymClass.new(
@@ -88,7 +106,8 @@ gym_class3 = GymClass.new(
     "start_time" => "14:00",
     "duration" => "45 minutes",
     "spaces" => room1.capacity,
-    "room_id" => room1.id
+    "room_id" => room1.id,
+    "instructor_id" => instructor2.id
   }
 )
 gym_class1.save
