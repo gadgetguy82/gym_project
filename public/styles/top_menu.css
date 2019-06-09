@@ -1,12 +1,32 @@
 .top_nav {
   height: 50px;
-  background: #A9A9A9;
+  top: 0;
+  left: 0;
 }
 
-.top_nav {
+.top_nav ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+.top_nav li {
+  float: left;
+  display: inline;
+  border-right: 1px solid #BBBBBB;
 }
 
 .top_nav a {
   display: block;
+  padding: 8px;
+  font-size: 30px;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 14px, 16px;
+}
+
+.top_nav a:hover {
+  background-color: #111111;
 }
