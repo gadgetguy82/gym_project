@@ -3,17 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title>Agile Fitness</title>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="/styles/menu.css">
   </head>
   <body>
-    <nav role="main">
-      <ul>
-        <li><a href="/">Agile Fitness</a></li>
-        <li><a href="/members">Member Management</a></li>
-        <li><a href="/gym_classes">Class Management</a></li>
-        <li><a href="/bookings">Bookings</a></li>
-        <li><a href="/rooms">Rooms</a></li>
-      </ul>
-    </nav>
-    <%= yield %>
+    <main>
+      <nav class="side_nav">
+        <ul>
+          <li><a href="/">Agile Fitness</a></li>
+          <li><a href="/members">Member Management</a></li>
+          <li><a href="/rooms">Rooms</a></li>
+          <li><a href="/gym_classes">Class Management</a></li>
+          <li><a href="/bookings">Bookings</a></li>
+        </ul>
+      </nav>
+      <section class="view">
+      <%= yield %>
+      </section>
+    </main>
   </body>
 </html>

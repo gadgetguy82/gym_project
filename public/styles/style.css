@@ -1,0 +1,11 @@
+body {
+  background: linear-gradient(to bottom right, #0099CC, white);
+}
+
+p {
+  margin-left: 20px;
+}
+
+.view {
+  display: block;
+}
