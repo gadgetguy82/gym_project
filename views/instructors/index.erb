@@ -1,3 +1,9 @@
+<nav>
+  <ul>
+    <li><a href="/instructors/new">Add Instructor</a></li>
+  </ul>
+</nav>
+
 <% @instructors.each do |instructor| %>
   <%= instructor.pretty_name %>
   <p><a href="/instructors/<%= instructor.id %>">Show details</a></p>

@@ -1,6 +1,7 @@
 require_relative("../db/sql_runner")
 require_relative("member")
 require_relative("room")
+require_relative("instructor")
 
 class GymClass
 
@@ -58,6 +59,14 @@ class GymClass
     values = [@id]
     room_data = SqlRunner.run(sql, values)[0]
     return Room.new(room_data)
+  end
+
+  def instructor
+    sql = "SELECT i.* FROM instructors i INNER JOIN gym_classes gc
+    ON i.id = gc.instructor_id WHERE gc.id = $1"
+    values = [@id]
+    instructor_data = SqlRunner.run(sql, values)[0]
+    return Instructor.new(instructor_data)
   end
 
   def booked_space
