@@ -5,11 +5,12 @@ require_relative("room")
 class GymClass
 
   attr_reader :id
-  attr_accessor :type, :start_time, :duration, :spaces, :room_id
+  attr_accessor :type, :start_date, :start_time, :duration, :spaces, :room_id
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
     @type = options["type"]
+    @start_date = options["start_date"]
     @start_time = options["start_time"]
     @duration = options["duration"]
     @spaces = options["spaces"].to_i
@@ -18,21 +19,21 @@ class GymClass
 
   def save
     sql = "INSERT INTO gym_classes (
-      type, start_time, duration, spaces, room_id
+      type, start_date, start_time, duration, spaces, room_id
     ) VALUES (
-      $1, $2, $3, $4, $5
+      $1, $2, $3, $4, $5, $6
     ) RETURNING *"
-    values = [@type, @start_time, @duration, @spaces, @room_id]
+    values = [@type, @start_date, @start_time, @duration, @spaces, @room_id]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
   def update
     sql = "UPDATE gym_classes SET (
-      type, start_time, duration, spaces, room_id
+      type, start_date, start_time, duration, spaces, room_id
     ) = (
-      $1, $2, $3, $4, $5
-    ) WHERE id = $6"
-    values = [@type, @start_time, @duration, @spaces, @room_id, @id]
+      $1, $2, $3, $4, $5, $6
+    ) WHERE id = $7"
+    values = [@type, @start_date, @start_time, @duration, @spaces, @room_id, @id]
     SqlRunner.run(sql, values)
   end
 

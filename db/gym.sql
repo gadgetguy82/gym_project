@@ -23,6 +23,7 @@ CREATE TABLE rooms (
 CREATE TABLE gym_classes (
   id SERIAL8 PRIMARY KEY,
   type VARCHAR(255),
+  start_date VARCHAR(255),
   start_time VARCHAR(255),
   duration VARCHAR(255),
   spaces INT2,

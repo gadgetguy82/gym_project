@@ -2,6 +2,12 @@
   <label for="type">Type:</label>
   <input type="text" name="type" id="type"
   value="<%= @gym_class.type if @gym_class %>">
+  <br>
+
+  <label for="start-date">Date:</label>
+  <input type="text" name="start_date" id="start-date"
+  value="<%= @gym_class.start_date if @gym_class %>">
+  <br>
 
   <label for="start-time">Time:</label>
   <input type="text" name="start_time" id="start-time"

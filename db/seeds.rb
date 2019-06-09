@@ -64,6 +64,7 @@ member3.save
 gym_class1 = GymClass.new(
   {
     "type" => "Yoga",
+    "start_date" => "23/10/2019",
     "start_time" => "10:00",
     "duration" => "1 hour",
     "spaces" => room1.capacity,
@@ -73,6 +74,7 @@ gym_class1 = GymClass.new(
 gym_class2 = GymClass.new(
   {
     "type" => "Zumba",
+    "start_date" => "22/10/2019",
     "start_time" => "11:00",
     "duration" => "30 minutes",
     "spaces" => room2.capacity,
@@ -82,6 +84,7 @@ gym_class2 = GymClass.new(
 gym_class3 = GymClass.new(
   {
     "type" => "Calisthenics",
+    "start_date" => "20/10/2019",
     "start_time" => "14:00",
     "duration" => "45 minutes",
     "spaces" => room1.capacity,
