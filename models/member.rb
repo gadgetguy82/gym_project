@@ -61,6 +61,16 @@ class Member
     return "#{street}<br\>#{city}<br\>#{postcode}"
   end
 
+  def pretty_date
+    date = Time.parse(@date_of_birth)
+    return date.strftime("%d/%m/%Y")
+  end
+
+  def html_date
+    date = Time.parse(@date_of_birth)
+    return date.strftime("%Y-%m-%d")
+  end
+
   def self.all
     sql = "SELECT * FROM members"
     members_data = SqlRunner.run(sql)

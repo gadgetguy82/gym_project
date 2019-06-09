@@ -10,8 +10,8 @@
   <br>
 
   <label for="date-of-birth">Date of Birth:</label>
-  <input type="text" name="date_of_birth" id="date-of-birth"
-  value="<%= @member.date_of_birth if @member %>">
+  <input type="date" name="date_of_birth" id="date-of-birth"
+  value="<%= @member.html_date if @member %>">
   <br>
 
   <label for="street">Street:</label>
