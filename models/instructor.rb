@@ -45,6 +45,10 @@ class Instructor
     return GymClass.map_items(gym_classes_data)
   end
 
+  def pretty_name
+    return "#{first_name} #{last_name}"
+  end
+
   def self.all
     sql = "SELECT * FROM instructors"
     instructors_data = SqlRunner.run(sql)

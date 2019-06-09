@@ -4,6 +4,7 @@ require_relative("controllers/member_controller")
 require_relative("controllers/gym_class_controller")
 require_relative("controllers/booking_controller")
 require_relative("controllers/room_controller")
+require_relative("controllers/instructor_controller")
 
 get "/" do
   erb(:index)
