@@ -6,7 +6,7 @@
 
   <label for="start-date">Date:</label>
   <input type="date" name="start_date" id="start-date"
-  value="<%= @gym_class.start_date if @gym_class %>">
+  value="<%= @gym_class.html_date if @gym_class %>">
   <br>
 
   <label for="start-time">Time:</label>
@@ -21,6 +21,7 @@
   <select name="room_id" id="room">
     <% @rooms.each do |room| %>
       <option value="<%= room.id %>" <% if @gym_class %><% if @gym_class.id == room.id %><%= "selected" %><% end %><% end %>><%= room.name %></option>
+      <input type="hidden" name="spaces" value="<% if @gym_class %><%= @gym_class.spaces %><% else %><%= room.capacity %><% end %>">
     <% end %>
   </select>
 

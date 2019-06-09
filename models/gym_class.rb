@@ -64,6 +64,16 @@ class GymClass
     update
   end
 
+  def html_date
+    date = Time.parse(@start_date)
+    return date.strftime("%Y-%m-%d")
+  end
+
+  def pretty_date
+    date = Time.parse(@start_date)
+    return date.strftime("%d/%m/%Y")
+  end
+
   def self.all
     sql = "SELECT * FROM gym_classes"
     gym_classes_data = SqlRunner.run(sql)
