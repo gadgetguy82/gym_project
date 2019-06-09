@@ -2,10 +2,7 @@ body {
   background: linear-gradient(to bottom right, #0099CC, white);
 }
 
-p {
-  margin-left: 20px;
-}
-
 .view {
-  display: block;
+  margin-left: 180px; /* Keep contents away from side nav */
+  padding-left: 10px
 }
