@@ -11,4 +11,14 @@ class Instructor
     @last_name = options["last_name"]
   end
 
+  def save
+    sql = "INSERT INTO instructors (
+      first_name, last_name
+    ) VALUES (
+      $1, $2
+    ) RETURNING *"
+    values = [@first_name, @last_name]
+    @id = SqlRunner.run(sql, values)[0]["id"]
+  end
+
 end
