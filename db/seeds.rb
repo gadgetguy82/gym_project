@@ -6,8 +6,8 @@ require_relative("../models/room")
 
 Booking.delete_all
 GymClass.delete_all
-Member.delete_all
 Room.delete_all
+Member.delete_all
 
 room1 = Room.new(
   {
