@@ -1,0 +1,11 @@
+<nav>
+  <ul>
+    <li><a href="/rooms/new">Add Room</a></li>
+  </ul>
+</nav>
+<% @rooms.each do |room| %>
+  <p><%= room.name %></p>
+  <p><%= room.capacity %></p>
+  <p><a href="/rooms/<%= room.id %>">Go to room details</a></p>
+  <hr>
+<% end %>

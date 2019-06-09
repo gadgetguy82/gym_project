@@ -85,8 +85,9 @@ class GymClass
     return data.map{|gym_class| GymClass.new(gym_class)}
   end
 
-  def upcoming_classes
+  def self.upcoming_classes
     gym_classes = self.all
+    current_date = Time.now
   end
 
 end

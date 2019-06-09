@@ -12,15 +12,13 @@ Room.delete_all
 room1 = Room.new(
   {
     "name" => "Alpha",
-    "capacity" => 30,
-    "reserved" => false
+    "capacity" => 10,
   }
 )
 room2 = Room.new(
   {
     "name" => "Bravo",
     "capacity" => 20,
-    "reserved" => false
   }
 )
 room1.save

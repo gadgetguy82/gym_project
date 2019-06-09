@@ -17,8 +17,7 @@ CREATE TABLE members (
 CREATE TABLE rooms (
   id SERIAL2 PRIMARY KEY,
   name VARCHAR(255),
-  capacity INT2,
-  reserved BOOLEAN
+  capacity INT2
 );
 
 CREATE TABLE gym_classes (
