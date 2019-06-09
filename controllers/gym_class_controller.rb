@@ -2,6 +2,7 @@ require("sinatra")
 require("sinatra/contrib/all")
 require_relative("../models/gym_class")
 require_relative("../models/room")
+require_relative("../models/instructor")
 also_reload("../models/*")
 
 get "/gym_classes" do
@@ -11,6 +12,7 @@ end
 
 get "/gym_classes/new" do
   @rooms = Room.all
+  @instructors = Instructor.all
   erb(:"gym_classes/new")
 end
 

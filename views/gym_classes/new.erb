@@ -16,11 +16,19 @@
   <label for="duration">Duration:</label>
   <input type="text" name="duration" id="duration"
   value="<%= @gym_class.duration if @gym_class %>">
+  <br>
+
+  <label for="instructor">Instructor:</label>
+  <select name="instructor_id" id="instructor">
+    <% @instructors.each do |instructor| %>
+      <option value="<%= instructor.id %>" <% if @gym_class %><% if @gym_class.instructor_id == instructor.id %><%= "selected" %><% end %><% end %>><%= instructor.pretty_name %></option>
+    <% end %>
+  </select>
 
   <label for="room">Room:</label>
   <select name="room_id" id="room">
     <% @rooms.each do |room| %>
-      <option value="<%= room.id %>" <% if @gym_class %><% if @gym_class.id == room.id %><%= "selected" %><% end %><% end %>><%= room.name %></option>
+      <option value="<%= room.id %>" <% if @gym_class %><% if @gym_class.room_id == room.id %><%= "selected" %><% end %><% end %>><%= room.name %></option>
       <input type="hidden" name="spaces" value="<% if @gym_class %><%= @gym_class.spaces %><% else %><%= room.capacity %><% end %>">
     <% end %>
   </select>
