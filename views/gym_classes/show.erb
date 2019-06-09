@@ -7,11 +7,11 @@
   <%= @gym_class.room.name %>
 </p>
 
-  <p>
-    <% @gym_class.members.each do |member| %>
-      <%= member.pretty_name %>
-    <% end %>
-  </p>
+<p>
+  <% @gym_class.members.each do |member| %>
+    <p><%= member.pretty_name %></p>
+  <% end %>
+</p>
 
 <p><a href="/gym_classes/<%= @gym_class.id %>/edit">Edit details</a></p>
 <p><form action="/gym_classes/<%= @gym_class.id %>/delete"

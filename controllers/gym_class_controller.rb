@@ -20,6 +20,11 @@ post "/gym_classes/new" do
   erb(:"gym_classes/show")
 end
 
+get "/gym_classes/upcoming" do
+  @gym_classes = GymClass.upcoming_classes
+  erb(:"gym_classes/upcoming")
+end
+
 get "/gym_classes/:id" do
   @gym_class = GymClass.find(params[:id])
   erb(:"gym_classes/show")

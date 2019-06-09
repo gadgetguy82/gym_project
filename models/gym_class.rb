@@ -99,6 +99,8 @@ class GymClass
   def self.upcoming_classes
     gym_classes = self.all
     current_date = Time.now
+    upcoming = gym_classes.find_all{|gc| Time.parse(gc.start_date) > current_date}
+    return upcoming
   end
 
 end
