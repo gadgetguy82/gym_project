@@ -28,15 +28,32 @@
       <label for="instructor">Instructor:</label>
       <select name="instructor_id" id="instructor">
         <% @instructors.each do |instructor| %>
-        <option value="<%= instructor.id %>" <% if @gym_class %><% if @gym_class.instructor_id == instructor.id %><%= "selected" %><% end %><% end %>><%= instructor.pretty_name %></option>
+        <option value="<%= instructor.id %>"
+          <% if @gym_class %>
+            <% if @gym_class.instructor_id == instructor.id %>
+              <%= "selected" %>
+            <% end %>
+          <% end %>>
+          <%= instructor.pretty_name %>
+        </option>
         <% end %>
       </select>
 
       <label for="room">Room:</label>
-      <select name="room_id" id="room">
+      <select name="room_id" id="room" style="width:100px">
         <% @rooms.each do |room| %>
-        <option value="<%= room.id %>" <% if @gym_class %><% if @gym_class.room_id == room.id %><%= "selected" %><% end %><% end %>><%= room.name %></option>
-        <input type="hidden" name="spaces" value="<% if @gym_class %><%= @gym_class.spaces %><% else %><%= room.capacity %><% end %>">
+        <option data-spaces="<% if @gym_class %>
+          <%= @gym_class.spaces %>
+        <% else %>
+          <%= room.capacity %>
+        <% end %>" value="<%= room.id %>"
+          <% if @gym_class %>
+            <% if @gym_class.room_id == room.id %>
+              <%= "selected" %>
+            <% end %>
+          <% end %>>
+          <%= room.name %>
+        </option>
         <% end %>
       </select>
     </p>
