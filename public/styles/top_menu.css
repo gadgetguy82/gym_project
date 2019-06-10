@@ -31,3 +31,27 @@
 .top_nav a:hover {
   background-color: #111111;
 }
+
+.top_nav .search-container {
+  float: right;
+}
+
+.top_nav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.top_nav button {
+  background-color: #333333;
+  border: none;
+}
+
+.fa-search {
+  font-size: 30px;
+  background: #333333;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+}
