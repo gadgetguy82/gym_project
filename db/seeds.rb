@@ -22,8 +22,9 @@ gym = Gym.new(
 )
 gym.save
 
-first_names = ["Andrew", "Betty", "Charles", "Daniella", "Eric", "Frieda", "Greg", "Helga", "Ian"]
-last_names = ["Anderson", "Bailey", "Christie", "Dyer", "Egerton", "Fogel", "Glass", "Henley", "Innes"]
+first_names = ["Andrew", "Betty", "Charles", "Daniella", "Eric", "Frieda", "Greg", "Helga", "Ian", "Jack", "Kevin", "Larry", "Matthew", "Nigel", "Oscar"]
+
+last_names = ["Anderson", "Bailey", "Christie", "Dyer", "Egerton", "Fogel", "Glass", "Henley", "Innes", "Johnson", "Kent", "Little", "McIntyre", "Nichols", "Osbourne"]
 
 instructors = []
 10.times{
@@ -38,7 +39,9 @@ instructors = []
 }
 instructors.each{|instructor| instructor.save}
 
-dobs = ["23/04/1990", "13/06/1970", "18/08/1960"]
+days = (1..28).to_a
+months = (1..12).to_a
+years = (1960..2000).to_a
 
 streets = ["23 Springvalley Terrace", "14 Mortonhall Crescent", "35 Muirhouse Road"]
 
@@ -55,7 +58,7 @@ members = []
       {
         "first_name" => first_names.sample,
         "last_name" => last_names.sample,
-        "date_of_birth" => dobs.sample,
+        "date_of_birth" => "#{days.sample}/#{months.sample}/#{years.sample}",
         "street" => streets.sample,
         "city" => cities.sample,
         "postcode" => postcodes.sample,
@@ -66,20 +69,24 @@ members = []
 }
 members.each{|member| member.save}
 
-room1 = Room.new(
-  {
-    "name" => "Alpha",
-    "capacity" => 10,
-  }
-)
-room2 = Room.new(
-  {
-    "name" => "Bravo",
-    "capacity" => 20,
-  }
-)
-room1.save
-room2.save
+names = ["Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "Indigo"]
+
+capacities = [10, 20, 30, 40, 50]
+
+rooms = []
+5.times{
+  rooms.push(
+    Room.new(
+      {
+        "name" => names.sample,
+        "capacity" => capacities.sample
+      }
+    )
+  )
+}
+rooms.each{|room| room.save}
+
+types = ["Calisthenics", "Yoga", "Zumba"]
 
 gym_class1 = GymClass.new(
   {
@@ -87,7 +94,7 @@ gym_class1 = GymClass.new(
     "start_date" => "2019-10-23",
     "start_time" => "10:00",
     "duration" => "1 hour",
-    "room_id" => room1.id,
+    "room_id" => rooms[1].id,
     "instructor_id" => instructors[1].id
   }
 )
@@ -97,7 +104,7 @@ gym_class2 = GymClass.new(
     "start_date" => "2019-10-22",
     "start_time" => "11:00",
     "duration" => "30 minutes",
-    "room_id" => room2.id,
+    "room_id" => rooms[2].id,
     "instructor_id" => instructors[1].id
   }
 )
@@ -107,7 +114,7 @@ gym_class3 = GymClass.new(
     "start_date" => "2019-10-20",
     "start_time" => "14:00",
     "duration" => "45 minutes",
-    "room_id" => room1.id,
+    "room_id" => rooms[1].id,
     "instructor_id" => instructors[2].id
   }
 )
