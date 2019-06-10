@@ -1,8 +1,8 @@
 require("pry")
-require_relative("../models/member")
-require_relative("../models/gym_class")
 require_relative("../models/booking")
+require_relative("../models/gym_class")
 require_relative("../models/room")
+require_relative("../models/member")
 require_relative("../models/instructor")
 require_relative("../models/gym")
 
@@ -22,20 +22,47 @@ gym = Gym.new(
 )
 gym.save
 
-instructor1 = Instructor.new(
-  {
-    "first_name" => "George",
-    "last_name" => "Clooney"
-  }
-)
-instructor2 = Instructor.new(
-  {
-    "first_name" => "Brad",
-    "last_name" => "Pitt"
-  }
-)
-instructor1.save
-instructor2.save
+first_names = ["Andrew", "Betty", "Charles", "Daniella", "Eric", "Frieda", "Greg", "Helga", "Ian"]
+last_names = ["Anderson", "Bailey", "Christie", "Dyer", "Egerton", "Fogel", "Glass", "Henley", "Innes"]
+
+10.times{
+  instructors.push(
+    Instructor.new(
+      {
+        "first_name" => first_names.sample,
+        "last_name" => last_names.sample
+      }
+    )
+  )
+}
+instructors.each{|instructor| instructor.save}
+
+dobs = ["23/04/1990", "13/06/1970", "18/08/1960"]
+
+streets = ["23 Springvalley Terrace", "14 Mortonhall Crescent", "35 Muirhouse Road"]
+
+cities = ["Edinburgh", "Glasgow", "Stirling"]
+
+postcodes = ["EH4 6HD", "G1 4BX", "FK4 7LY"]
+
+phones = ["0131 223 4455", "0131 210 8732", "0131 430 9938"]
+
+20.times{
+  members.push(
+    Member.new(
+      {
+        "first_name" => first_names.sample,
+        "last_name" => last_names.sample,
+        "date_of_birth" => dobs.sample,
+        "street" => streets.sample,
+        "cities" => cities.sample,
+        "postcode" => postcodes.sample,
+        "phone" => phones.sample
+      }
+    )
+  )
+}
+members.each{|member| member.save}
 
 room1 = Room.new(
   {
@@ -51,43 +78,6 @@ room2 = Room.new(
 )
 room1.save
 room2.save
-
-member1 = Member.new(
-  {
-    "first_name" => "Joe",
-    "last_name" => "Smith",
-    "date_of_birth" => "23/04/1990",
-    "street" => "23 Springvalley Terrace",
-    "city" => "Edinburgh",
-    "postcode" => "EH10 4PY",
-    "phone" => "0131 223 4455"
-  }
-)
-member2 = Member.new(
-  {
-    "first_name" => "Bill",
-    "last_name" => "Murray",
-    "date_of_birth" => "13/06/1970",
-    "street" => "14 Mortonhall Crescent",
-    "city" => "Edinburgh",
-    "postcode" => "EH13 8JY",
-    "phone" => "0131 210 8732"
-  }
-)
-member3 = Member.new(
-  {
-    "first_name" => "Robert",
-    "last_name" => "De Niro",
-    "date_of_birth" => "18/08/1960",
-    "street" => "35 Muirhouse Road",
-    "city" => "Edinburgh",
-    "postcode" => "EH12 9PG",
-    "phone" => "0131 430 9938"
-  }
-)
-member1.save
-member2.save
-member3.save
 
 gym_class1 = GymClass.new(
   {
