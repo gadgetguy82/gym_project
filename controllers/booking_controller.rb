@@ -26,5 +26,6 @@ end
 post "/bookings/:id/delete" do
   booking = Booking.find(params[:id])
   booking.delete
+  booking.gym_class.cancel_booking
   redirect to("/bookings")
 end

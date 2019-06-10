@@ -74,6 +74,11 @@ class GymClass
     update
   end
 
+  def cancel_booking
+    @spaces += 1
+    update
+  end
+
   def html_date
     date = Time.parse(@start_date)
     return date.strftime("%Y-%m-%d")
