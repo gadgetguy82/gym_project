@@ -38,7 +38,7 @@
   <label for="room">Room:</label>
   <select name="room_id" id="room" style="width:100px">
     <% @rooms.each do |room| %>
-    <option data-spaces="<%= @gym_class.spaces %>" value="<%= room.id %>" <%= "selected" if @gym_class.room_id == room.id %>>
+    <option value="<%= room.id %>" <%= "selected" if @gym_class.room_id == room.id %>>
       <%= room.name %>
     </option>
     <% end %>

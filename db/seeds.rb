@@ -141,10 +141,13 @@ booking4 = Booking.new(
 )
 booking1.save
 gym_class1.booked_space
+
 booking2.save
 gym_class2.booked_space
+
 booking3.save
 gym_class3.booked_space
+
 booking4.save
 gym_class3.booked_space
 

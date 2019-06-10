@@ -6,7 +6,7 @@ require_relative("instructor")
 class GymClass
 
   attr_reader :id
-  attr_accessor :type, :start_date, :start_time, :duration, :spaces, :room_id, :instructor_id
+  attr_accessor :type, :start_date, :start_time, :duration, :spaces_taken, :spaces, :room_id, :instructor_id
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
@@ -14,28 +14,31 @@ class GymClass
     @start_date = options["start_date"]
     @start_time = options["start_time"]
     @duration = options["duration"]
-    @spaces = options["spaces"].to_i
+    @spaces_taken = options["spaces_taken"].to_i if options["spaces_taken"]
+    @spaces = options["spaces"].to_i if options["spaces"]
     @room_id = options["room_id"].to_i
     @instructor_id = options["instructor_id"].to_i
   end
 
   def save
+    @spaces = 0
+    @spaces_taken = 0
     sql = "INSERT INTO gym_classes (
-      type, start_date, start_time, duration, spaces, room_id, instructor_id
+      type, start_date, start_time, duration, spaces_taken, spaces, room_id, instructor_id
     ) VALUES (
-      $1, $2, $3, $4, $5, $6, $7
+      $1, $2, $3, $4, $5, $6, $7, $8
     ) RETURNING *"
-    values = [@type, @start_date, @start_time, @duration, @spaces, @room_id, @instructor_id]
+    values = [@type, @start_date, @start_time, @duration, @spaces_taken, @spaces, @room_id, @instructor_id]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
   def update
     sql = "UPDATE gym_classes SET (
-      type, start_date, start_time, duration, spaces, room_id, instructor_id
+      type, start_date, start_time, duration, spaces_taken, spaces, room_id, instructor_id
     ) = (
-      $1, $2, $3, $4, $5, $6, $7
-    ) WHERE id = $8"
-    values = [@type, @start_date, @start_time, @duration, @spaces, @room_id, @instructor_id, @id]
+      $1, $2, $3, $4, $5, $6, $7, $8
+    ) WHERE id = $9"
+    values = [@type, @start_date, @start_time, @duration, @spaces_taken, @spaces, @room_id, @instructor_id, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -69,13 +72,22 @@ class GymClass
     return Instructor.new(instructor_data)
   end
 
+  def set_spaces
+    previous = GymClass.find(@id)
+    @spaces_taken = previous.spaces_taken
+    @spaces = self.room.capacity.to_i - @spaces_taken
+    update
+  end
+
   def booked_space
-    @spaces -= 1
+    @spaces_taken += 1
+    set_spaces
     update
   end
 
   def cancel_booking
-    @spaces += 1
+    @spaces_taken -= 1
+    set_spaces
     update
   end
 

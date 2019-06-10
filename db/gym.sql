@@ -33,6 +33,7 @@ CREATE TABLE gym_classes (
   start_date VARCHAR(255),
   start_time VARCHAR(255),
   duration VARCHAR(255),
+  spaces_taken INT2,
   spaces INT2,
   room_id INT2 REFERENCES rooms(id) ON DELETE CASCADE,
   instructor_id INT8 REFERENCES instructors(id) ON DELETE CASCADE

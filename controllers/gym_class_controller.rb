@@ -41,7 +41,7 @@ end
 
 post "/gym_classes/:id/edit" do
   @gym_class = GymClass.new(params)
-  @gym_class.update
+  @gym_class.set_spaces
   erb(:"gym_classes/show")
 end
 
