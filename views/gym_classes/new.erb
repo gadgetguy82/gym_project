@@ -1,3 +1,7 @@
+    <li><a href="/about_us">About Us</a></li>
+  </ul>
+</nav>
+
 <form action="/gym_classes/<% if @gym_class %><%= @gym_class.id %>/edit<% else %><%= "new" %><% end %>" method="post">
   <label for="type">Type:</label>
   <input type="text" name="type" id="type"

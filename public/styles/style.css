@@ -3,10 +3,10 @@ html {
   background-attachment: fixed;
 }
 
-p {
-  padding-left: 10px
+section {
+  margin-left: 180px; /* Keep contents away from side nav */
 }
 
-.view {
-  margin-left: 180px; /* Keep contents away from side nav */
+p {
+  padding-left: 10px
 }
