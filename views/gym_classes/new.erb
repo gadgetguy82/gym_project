@@ -3,37 +3,28 @@
 </nav>
 
 <section>
-  <form action="/gym_classes/<% if @gym_class %><%= @gym_class.id %>/edit<% else %><%= "new" %><% end %>" method="post">
+  <form action="/gym_classes/new" method="post">
     <p>
       <label for="type">Type:</label>
-      <input type="text" name="type" id="type"
-      value="<%= @gym_class.type if @gym_class %>">
+      <input type="text" name="type" id="type">
     </p>
 
     <p>
       <label for="start-date">Date:</label>
-      <input type="date" name="start_date" id="start-date"
-      value="<%= @gym_class.html_date if @gym_class %>">
+      <input type="date" name="start_date" id="start-date">
 
       <label for="start-time">Time:</label>
-      <input type="time" name="start_time" id="start-time"
-      value="<%= @gym_class.start_time if @gym_class %>">
+      <input type="time" name="start_time" id="start-time">
 
       <label for="duration">Duration:</label>
-      <input type="text" name="duration" id="duration"
-      value="<%= @gym_class.duration if @gym_class %>">
+      <input type="text" name="duration" id="duration">
     </p>
 
     <p>
       <label for="instructor">Instructor:</label>
       <select name="instructor_id" id="instructor">
         <% @instructors.each do |instructor| %>
-        <option value="<%= instructor.id %>"
-          <% if @gym_class %>
-            <% if @gym_class.instructor_id == instructor.id %>
-              <%= "selected" %>
-            <% end %>
-          <% end %>>
+        <option value="<%= instructor.id %>">
           <%= instructor.pretty_name %>
         </option>
         <% end %>
@@ -42,12 +33,7 @@
       <label for="room">Room:</label>
       <select name="room_id" id="room" style="width:100px">
         <% @rooms.each do |room| %>
-        <option data-spaces="<% if @gym_class %><%= @gym_class.spaces %><% else %><%= room.capacity %><% end %>" value="<%= room.id %>"
-          <% if @gym_class %>
-            <% if @gym_class.room_id == room.id %>
-              <%= "selected" %>
-            <% end %>
-          <% end %>>
+        <option data-spaces="<%= room.capacity %>" value="<%= room.id %>">
           <%= room.name %>
         </option>
         <% end %>
