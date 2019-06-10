@@ -25,6 +25,7 @@ gym.save
 first_names = ["Andrew", "Betty", "Charles", "Daniella", "Eric", "Frieda", "Greg", "Helga", "Ian"]
 last_names = ["Anderson", "Bailey", "Christie", "Dyer", "Egerton", "Fogel", "Glass", "Henley", "Innes"]
 
+instructors = []
 10.times{
   instructors.push(
     Instructor.new(
@@ -47,6 +48,7 @@ postcodes = ["EH4 6HD", "G1 4BX", "FK4 7LY"]
 
 phones = ["0131 223 4455", "0131 210 8732", "0131 430 9938"]
 
+members = []
 20.times{
   members.push(
     Member.new(
@@ -55,7 +57,7 @@ phones = ["0131 223 4455", "0131 210 8732", "0131 430 9938"]
         "last_name" => last_names.sample,
         "date_of_birth" => dobs.sample,
         "street" => streets.sample,
-        "cities" => cities.sample,
+        "city" => cities.sample,
         "postcode" => postcodes.sample,
         "phone" => phones.sample
       }
@@ -86,7 +88,7 @@ gym_class1 = GymClass.new(
     "start_time" => "10:00",
     "duration" => "1 hour",
     "room_id" => room1.id,
-    "instructor_id" => instructor1.id
+    "instructor_id" => instructors[1].id
   }
 )
 gym_class2 = GymClass.new(
@@ -96,7 +98,7 @@ gym_class2 = GymClass.new(
     "start_time" => "11:00",
     "duration" => "30 minutes",
     "room_id" => room2.id,
-    "instructor_id" => instructor1.id
+    "instructor_id" => instructors[1].id
   }
 )
 gym_class3 = GymClass.new(
@@ -106,7 +108,7 @@ gym_class3 = GymClass.new(
     "start_time" => "14:00",
     "duration" => "45 minutes",
     "room_id" => room1.id,
-    "instructor_id" => instructor2.id
+    "instructor_id" => instructors[2].id
   }
 )
 gym_class1.save
@@ -115,25 +117,25 @@ gym_class3.save
 
 booking1 = Booking.new(
   {
-    "member_id" => member1.id,
+    "member_id" => members[1].id,
     "gym_class_id" => gym_class1.id
   }
 )
 booking2 = Booking.new(
   {
-    "member_id" => member1.id,
+    "member_id" => members[1].id,
     "gym_class_id" => gym_class2.id
   }
 )
 booking3 = Booking.new(
   {
-    "member_id" => member2.id,
+    "member_id" => members[2].id,
     "gym_class_id" => gym_class3.id
   }
 )
 booking4 = Booking.new(
   {
-    "member_id" => member3.id,
+    "member_id" => members[3].id,
     "gym_class_id" => gym_class3.id
   }
 )
