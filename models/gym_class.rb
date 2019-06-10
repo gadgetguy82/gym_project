@@ -87,14 +87,19 @@ class GymClass
     update
   end
 
-  def pretty_time
-    time = Time.parse(date_time)
-    return time.strftime("%H:%M")
+  def date
+    date = date_time.gsub(/\s+/m, ' ').strip.split(" ")[0]
+    return date
   end
 
-  def pretty_date
-    date = Time.parse(date_time)
-    return date.strftime("%d/%m/%Y")
+  def time
+    time = date_time.gsub(/\s+/m, ' ').strip.split(" ")[1]
+    return time
+  end
+
+  def pretty_date_time
+    dt = Time.parse(date_time)
+    return dt.strftime("%d/%m/%Y %H:%M")
   end
 
   def self.all
