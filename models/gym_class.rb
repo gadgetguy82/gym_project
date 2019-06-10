@@ -11,7 +11,11 @@ class GymClass
   def initialize(options)
     @id = options["id"].to_i if options["id"]
     @type = options["type"]
-    @date_time = options["date_time"]
+    if options["start_date"]
+      @date_time = options["start_date"] + " " + options["start_time"]
+    else
+      @date_time = options["date_time"]
+    end
     @duration = options["duration"]
     @spaces_taken = options["spaces_taken"].to_i if options["spaces_taken"]
     @room_id = options["room_id"].to_i
@@ -21,7 +25,7 @@ class GymClass
   def save
     @spaces_taken = 0
     sql = "INSERT INTO gym_classes (
-      type, date_time, duration, spaces_taken, , room_id, instructor_id
+      type, date_time, duration, spaces_taken, room_id, instructor_id
     ) VALUES (
       $1, $2, $3, $4, $5, $6
     ) RETURNING *"
@@ -83,13 +87,13 @@ class GymClass
     update
   end
 
-  def html_date
-    date = Time.parse(@date_time)
-    return date.strftime("%Y-%m-%d")
+  def pretty_time
+    time = Time.parse(date_time)
+    return time.strftime("%H:%M")
   end
 
   def pretty_date
-    date = Time.parse(@date_time)
+    date = Time.parse(date_time)
     return date.strftime("%d/%m/%Y")
   end
 
@@ -118,7 +122,7 @@ class GymClass
   def self.upcoming_classes
     gym_classes = self.all
     current_date = Time.now
-    upcoming = gym_classes.find_all{|gc| Time.parse(gc.date_time) > current_date}
+    upcoming = gym_classes.find_all{|gc| gc.date_time > current_date}
     return upcoming
   end
 

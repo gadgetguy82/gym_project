@@ -8,7 +8,7 @@ class Room
   def initialize(options)
     @id = options["id"].to_i if options["id"]
     @name = options["name"]
-    @capacity = options["capacity"]
+    @capacity = options["capacity"].to_i
   end
 
   def save
