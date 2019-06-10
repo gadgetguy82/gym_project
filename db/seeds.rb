@@ -4,12 +4,23 @@ require_relative("../models/gym_class")
 require_relative("../models/booking")
 require_relative("../models/room")
 require_relative("../models/instructor")
+require_relative("../models/gym")
 
 Booking.delete_all
 GymClass.delete_all
 Room.delete_all
 Member.delete_all
 Instructor.delete_all
+Gym.delete_all
+
+gym = Gym.new(
+  {
+    "name" => "Agile Fitness",
+    "start_peak" => "16:00",
+    "stop_peak" => "19:00"
+  }
+)
+gym.save
 
 instructor1 = Instructor.new(
   {

@@ -3,6 +3,14 @@ DROP TABLE IF EXISTS gym_classes;
 DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS members;
 DROP TABLE IF EXISTS instructors;
+DROP TABLE IF EXISTS gyms;
+
+CREATE TABLE gyms (
+  id SERIAL2 PRIMARY KEY,
+  name VARCHAR(255),
+  start_peak TIME,
+  stop_peak TIME
+);
 
 CREATE TABLE instructors (
   id SERIAL8 PRIMARY KEY,
