@@ -10,5 +10,13 @@ section {
 }
 
 p {
-  padding-left: 10px
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+input {
+  /* opacity: 0.4; */
+  background: none;
+  color: #000000;
+  font-size: 20px;
 }

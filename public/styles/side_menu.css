@@ -7,6 +7,7 @@
   background: linear-gradient(to bottom right, #003399, #0099CC);
   overflow: auto;
   padding-top: 20px;
+  z-index: 1;
 }
 
 .side_nav ul {
