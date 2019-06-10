@@ -4,6 +4,8 @@ html {
 }
 
 section {
+  padding: 10px;
+  padding-top: 50px;
   margin-left: 180px; /* Keep contents away from side nav */
 }
 

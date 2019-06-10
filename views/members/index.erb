@@ -2,11 +2,14 @@
     <li><a href="/members/new">Add Member</a></li>
   </ul>
 </nav>
-<% @members.each do |member| %>
-  <p><%= member.pretty_name %></p>
-  <p><%= member.pretty_date %></p>
-  <p><%= member.pretty_address %></p>
-  <p><%= member.phone %></p>
-  <p><a href="/members/<%= member.id %>">Show details</a></p>
-  <hr>
-<% end %>
+
+<section>
+  <% @members.each do |member| %>
+    <p><%= member.pretty_name %></p>
+    <p><%= member.pretty_date %></p>
+    <p><%= member.pretty_address %></p>
+    <p><%= member.phone %></p>
+    <p><a href="/members/<%= member.id %>">Show details</a></p>
+    <hr>
+  <% end %>
+</section>
