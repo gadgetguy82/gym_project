@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   background: linear-gradient(to bottom right, #003399, #0099CC);
-  overflow-x: hidden;
+  overflow: auto;
   padding-top: 20px;
 }
 
@@ -28,7 +28,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* font-family: 'Alfa Slab One', cursive; */
   font-family: 'Lalezar', cursive;
   font-size: 25px;
   color: #CCFFCC;

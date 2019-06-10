@@ -1,7 +1,6 @@
 .top_nav {
-  height: 50px;
-  top: 0;
-  left: 0;
+  width: 85%;
+  position: fixed;
 }
 
 .top_nav ul {
@@ -13,15 +12,16 @@
 }
 
 .top_nav li {
-  float: left;
+  float: right;
   display: inline;
-  border-right: 1px solid #BBBBBB;
+  border-left: 1px solid #BBBBBB;
 }
 
 .top_nav a {
   display: block;
   padding: 8px;
-  font-size: 30px;
+  font-size: 20px;
+  font-family: 'Alfa Slab One', cursive;
   color: #FFFFFF;
   text-align: center;
   padding: 14px, 16px;
