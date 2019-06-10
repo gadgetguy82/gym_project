@@ -2,9 +2,10 @@
   </ul>
 </nav>
 
-<h1>Booking</h1>
+<section>
+  <h1>Booking</h1>
 
-<% @gym_classes.each do |gym_class| %>
+  <% @gym_classes.each do |gym_class| %>
   <p><%= gym_class.type %> Class</p>
   <p><%= gym_class.spaces %> spaces left</p>
   <p>
@@ -12,8 +13,9 @@
       <input type="hidden" name="member_id" value="<%= @member.id %>">
       <input type="hidden" name="gym_class_id" value="<%= gym_class.id %>">
       <% if gym_class.spaces > 0%>
-        <input type="submit" value="Book Place">
+      <input type="submit" value="Book Place">
       <% end %>
     </form>
   </p>
-<% end %>
+  <% end %>
+</section>

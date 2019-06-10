@@ -2,9 +2,13 @@
   </ul>
 </nav>
 
-<p><%= @room.name %></p>
-<p><%= @room.capacity %></p>
-<p><a href="/rooms/<%= @room.id %>/edit">Edit room</a></p>
-<p><form action="/rooms/<%= @room.id %>/delete" method="post">
-  <input type="submit" value="Delete room">
-</form></p>
+<section>
+  <p><%= @room.name %></p>
+  <p><%= @room.capacity %></p>
+  <p><a href="/rooms/<%= @room.id %>/edit">Edit room</a></p>
+  <p>
+    <form action="/rooms/<%= @room.id %>/delete" method="post">
+      <input type="submit" value="Delete room">
+    </form>
+  </p>
+</section>

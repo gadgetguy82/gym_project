@@ -1,7 +1,9 @@
     <li><a href="/gym_classes/new">Create Class</a></li>
   </ul>
 </nav>
-<% @gym_classes.each do |gym_class| %>
+
+<section>
+  <% @gym_classes.each do |gym_class| %>
   <p>
     <%= gym_class.type %>
     <%= gym_class.pretty_date %>
@@ -13,6 +15,7 @@
   </p>
   <p><a href="/gym_classes/<%= gym_class.id %>">Show details</a></p>
   <hr>
-<% end %>
+  <% end %>
 
-<p><a href="/gym_classes/upcoming">List of upcoming classes</a></p>
+  <p><a href="/gym_classes/upcoming">List of upcoming classes</a></p>
+</section>

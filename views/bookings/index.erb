@@ -2,11 +2,13 @@
   </ul>
 </nav>
 
-<% @bookings.each do |booking| %>
+<section>
+  <% @bookings.each do |booking| %>
   <p><%= booking.member.pretty_name %></p>
   <p><%= booking.gym_class.type %></p>
   <p><form action="/bookings/<%= booking.id %>/delete" method="post">
     <input type="submit" value="Cancel booking">
   </form></p>
   <hr>
-<% end %>
+  <% end %>
+</section>

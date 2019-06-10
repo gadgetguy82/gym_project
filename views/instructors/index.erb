@@ -2,8 +2,10 @@
   </ul>
 </nav>
 
-<% @instructors.each do |instructor| %>
+<section>
+  <% @instructors.each do |instructor| %>
   <%= instructor.pretty_name %>
   <p><a href="/instructors/<%= instructor.id %>">Show details</a></p>
   <hr>
-<% end %>
+  <% end %>
+</section>

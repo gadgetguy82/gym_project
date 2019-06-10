@@ -2,24 +2,28 @@
   </ul>
 </nav>
 
-<p>
-  <%= @gym_class.type %> Class
-  <%= @gym_class.pretty_date %>
-  <%= @gym_class.start_time %>
-  <%= @gym_class.duration %>
-  <%= @gym_class.spaces %>
-  <%= @gym_class.instructor.pretty_name %>
-  <%= @gym_class.room.name %>
-</p>
+<section>
+  <p>
+    <%= @gym_class.type %> Class
+    <%= @gym_class.pretty_date %>
+    <%= @gym_class.start_time %>
+    <%= @gym_class.duration %>
+    <%= @gym_class.spaces %>
+    <%= @gym_class.instructor.pretty_name %>
+    <%= @gym_class.room.name %>
+  </p>
 
-<p>
-  <% @gym_class.members.each do |member| %>
+  <p>
+    <% @gym_class.members.each do |member| %>
     <p><%= member.pretty_name %></p>
-  <% end %>
-</p>
+    <% end %>
+  </p>
 
-<p><a href="/gym_classes/<%= @gym_class.id %>/edit">Edit details</a></p>
-<p><form action="/gym_classes/<%= @gym_class.id %>/delete"
-  method="post">
-  <input type="submit" value="Delete Class">
-</form></p>
+  <p><a href="/gym_classes/<%= @gym_class.id %>/edit">Edit details</a></p>
+  <p>
+    <form action="/gym_classes/<%= @gym_class.id %>/delete"
+      method="post">
+      <input type="submit" value="Delete Class">
+    </form>
+  </p>
+</section>

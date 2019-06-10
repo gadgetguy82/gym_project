@@ -2,6 +2,8 @@
   </ul>
 </nav>
 
-<p><%= @booking.member.pretty_name %></p>
-<p><%= @booking.gym_class.type %></p>
-<p><a href="/bookings/<%= @booking.member_id %>">Book another class</a></p>
+<section>
+  <p><%= @booking.member.pretty_name %></p>
+  <p><%= @booking.gym_class.type %></p>
+  <p><a href="/bookings/<%= @booking.member_id %>">Book another class</a></p>
+</section>
