@@ -4,15 +4,17 @@
 
 <section>
   <form action="/instructors/<% if @instructor %><%= @instructor.id %>/edit<% else %><%= "new" %><% end %>" method="post">
-    <label for="first-name">First Name:</label>
-    <input type="text" name="first_name" id="first-name"
-    value="<%= @instructor.first_name if @instructor %>">
-    <br>
+    <p>
+      <label for="first-name">First Name:</label>
+      <input type="text" name="first_name" id="first-name"
+      value="<%= @instructor.first_name if @instructor %>">
+    </p>
 
-    <label for="last-name">Last Name:</label>
-    <input type="text" name="last_name" id="last-name"
-    value="<%= @instructor.last_name if @instructor %>">
-    <br>
+    <p>
+      <label for="last-name">Last Name:</label>
+      <input type="text" name="last_name" id="last-name"
+      value="<%= @instructor.last_name if @instructor %>">
+    </p>
 
     <input type="submit" value="Save Details">
   </form>

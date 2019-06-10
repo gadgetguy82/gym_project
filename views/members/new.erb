@@ -4,40 +4,47 @@
 
 <section>
   <form action="/members/<% if @member %><%= @member.id %>/edit<% else %><%= "new" %><% end %>" method="post">
-    <label for="first-name">First Name:</label>
-    <input type="text" name="first_name" id="first-name"
-    value="<%= @member.first_name if @member %>">
-    <br>
+    <p>
+      <label for="first-name">First Name:</label>
+      <input type="text" name="first_name" id="first-name"
+      value="<%= @member.first_name if @member %>">
+    </p>
 
-    <label for="last-name">Last Name:</label>
-    <input type="text" name="last_name" id="last-name"
-    value="<%= @member.last_name if @member %>">
-    <br>
+    <p>
+      <label for="last-name">Last Name:</label>
+      <input type="text" name="last_name" id="last-name"
+      value="<%= @member.last_name if @member %>">
+    </p>
 
-    <label for="date-of-birth">Date of Birth:</label>
-    <input type="date" name="date_of_birth" id="date-of-birth"
-    value="<%= @member.html_date if @member %>">
-    <br>
+    <p>
+      <label for="date-of-birth">Date of Birth:</label>
+      <input type="date" name="date_of_birth" id="date-of-birth"
+      value="<%= @member.html_date if @member %>">
+    </p>
 
-    <label for="street">Street:</label>
-    <input type="text" name="street" id="street"
-    value="<%= @member.street if @member %>">
-    <br>
+    <p>
+      <label for="street">Street:</label>
+      <input type="text" name="street" id="street"
+      value="<%= @member.street if @member %>">
+    </p>
 
-    <label for="city">City:</label>
-    <input type="text" name="city" id="city"
-    value="<%= @member.city if @member %>">
-    <br>
+    <p>
+      <label for="city">City:</label>
+      <input type="text" name="city" id="city"
+      value="<%= @member.city if @member %>">
+    </p>
 
-    <label for="postcode">Postcode:</label>
-    <input type="text" name="postcode" id="postcode"
-    value="<%= @member.postcode if @member %>">
-    <br>
+    <p>
+      <label for="postcode">Postcode:</label>
+      <input type="text" name="postcode" id="postcode"
+      value="<%= @member.postcode if @member %>">
+    </p>
 
-    <label for="phone">Contact Number:</label>
-    <input type="text" name="phone" id="phone"
-    value="<%= @member.phone if @member %>">
-    <br>
+    <p>
+      <label for="phone">Contact Number:</label>
+      <input type="text" name="phone" id="phone"
+      value="<%= @member.phone if @member %>">
+    </p>
 
     <input type="submit" value="Save Details">
   </form>

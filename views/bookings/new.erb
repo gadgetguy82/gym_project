@@ -8,14 +8,13 @@
   <% @gym_classes.each do |gym_class| %>
   <p><%= gym_class.type %> Class</p>
   <p><%= gym_class.spaces %> spaces left</p>
-  <p>
-    <form action="/bookings/<%= @member.id %>" method="post">
-      <input type="hidden" name="member_id" value="<%= @member.id %>">
-      <input type="hidden" name="gym_class_id" value="<%= gym_class.id %>">
-      <% if gym_class.spaces > 0%>
-      <input type="submit" value="Book Place">
-      <% end %>
-    </form>
-  </p>
+  <br>
+  <form action="/bookings/<%= @member.id %>" method="post">
+    <input type="hidden" name="member_id" value="<%= @member.id %>">
+    <input type="hidden" name="gym_class_id" value="<%= gym_class.id %>">
+    <% if gym_class.spaces > 0%>
+    <input type="submit" value="Book Place">
+    <% end %>
+  </form>
   <% end %>
 </section>

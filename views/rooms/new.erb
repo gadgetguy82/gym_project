@@ -4,15 +4,17 @@
 
 <section>
   <form action="/rooms/<% if @room %><%= @room.id %>/edit<% else %><%= "new" %><% end %>" method="post">
+    <p>
     <label for="name">Room name:</label>
     <input type="text" name="name" id="name"
     value="<%= @room.name if @room %>">
-    <br>
+    </p>
 
+    <p>
     <label for="capacity">Room capacity:</label>
     <input type="number" name="capacity" id="capacity"
     value="<%= @room.capacity if @room %>">
-    <br>
+    </p>
 
     <input type="submit" value="Save room">
   </form>

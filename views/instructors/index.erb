@@ -4,7 +4,7 @@
 
 <section>
   <% @instructors.each do |instructor| %>
-  <%= instructor.pretty_name %>
+  <p><%= instructor.pretty_name %></p>
   <p><a href="/instructors/<%= instructor.id %>">Show details</a></p>
   <hr>
   <% end %>

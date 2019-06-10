@@ -13,17 +13,15 @@
     <%= @gym_class.room.name %>
   </p>
 
-  <p>
-    <% @gym_class.members.each do |member| %>
-    <p><%= member.pretty_name %></p>
-    <% end %>
-  </p>
+  <% @gym_class.members.each do |member| %>
+  <p><%= member.pretty_name %></p>
+  <% end %>
 
   <p><a href="/gym_classes/<%= @gym_class.id %>/edit">Edit details</a></p>
-  <p>
-    <form action="/gym_classes/<%= @gym_class.id %>/delete"
-      method="post">
-      <input type="submit" value="Delete Class">
-    </form>
-  </p>
+  <br>
+
+  <form action="/gym_classes/<%= @gym_class.id %>/delete"
+    method="post">
+    <input type="submit" value="Delete Class">
+  </form>
 </section>
