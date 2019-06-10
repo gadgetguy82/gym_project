@@ -1,6 +1,8 @@
 .top_nav {
-  width: 85%;
+  top: 0;
+  width: 100%;
   position: fixed;
+  z-index: -1;
 }
 
 .top_nav ul {
