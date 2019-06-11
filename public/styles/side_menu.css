@@ -6,7 +6,6 @@
   left: 0;
   background: linear-gradient(to bottom right, #003399, #0099CC);
   overflow: auto;
-  padding-top: 20px;
   z-index: 1; /* Side menu should be top most element */
 }
 
@@ -19,12 +18,20 @@
 .side_nav li {
   height: 100px;
   position: relative;
-  border-bottom: 1px solid #BBBBBB;
   padding: 10px 35px;
   overflow: hidden;
-  border-top: 3px #FFD700;
-  border-left: 3px #FFD700;
-  border-right: 3px #FFD700;
+  border-top: 8px solid #FFD700;
+  border-bottom: 8px solid #FFFF33;
+  border-left: 8px solid #FFD700;
+  border-right: 8px solid #FFFF33;
+}
+
+.side_nav li:first-child {
+  height: 60px;
+}
+
+.side_nav li:last-child {
+  height: 60px;
 }
 
 .side_nav li:before {
@@ -41,7 +48,8 @@
 }
 
 .side_nav a {
-  display: block;
+  display: inline-block;
+  padding: 50px;
   margin: 0;
   position: absolute;
   top: 50%;

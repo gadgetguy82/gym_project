@@ -19,13 +19,13 @@
 }
 
 .top_nav a {
-  display: block;
+  display: inline-block;
   padding: 8px;
   font-size: 20px;
   font-family: 'Alfa Slab One', cursive;
   color: #FFFFFF;
   text-align: center;
-  padding: 14px, 16px;
+  padding: 16px, 18px;
   text-decoration: none;
 }
 
