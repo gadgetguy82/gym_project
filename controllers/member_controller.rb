@@ -29,7 +29,18 @@ get "/members/standard" do
 end
 
 post "/members/search" do
-  search = params[:search]
+  @members = Member.get_matching_names(params[:search])
+  erb(:"members/index")
+end
+
+post "/members/premium-search" do
+  @members = Member.get_matching_premium_names(params[:search])
+  erb(:"members/index")
+end
+
+post "/members/standard-search" do
+  @members = Member.get_matching_standard_names(params[:search])
+  erb(:"members/index")
 end
 
 get "/members/:id" do

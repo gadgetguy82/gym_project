@@ -106,4 +106,19 @@ class Member
     return map_items(members_data)
   end
 
+  def self.get_matching_names(search)
+    members = Member.all
+    return members.find_all{|member| member.pretty_name.include?(search)}
+  end
+
+  def self.get_matching_premium_names(search)
+    members = Member.premium_members
+    return members.find_all{|member| member.pretty_name.include?(search)}
+  end
+
+  def self.get_matching_standard_names(search)
+    members = Member.standard_members
+    return members.find_all{|member| member.pretty_name.include?(search)}
+  end
+
 end
