@@ -97,7 +97,7 @@ class GymClass
   end
 
   def time
-    return self.create_date_time.to_time
+    return self.create_date_time.strftime("%H:%M")
   end
 
   def pretty_date_time
