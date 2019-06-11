@@ -93,76 +93,46 @@ room_quantity.times{
 rooms.each{|room| room.save}
 
 types = ["Calisthenics", "Judo", "Karate", "Yoga", "Zumba"]
+year = 2019
+times = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"]
+durations = ["1 hour", "50 minutes", "40 minutes", "30 minutes"]
 
-gym_class1 = GymClass.new(
-  {
-    "type" => "Yoga",
-    "start_date" => "2019-10-23",
-    "start_time" => "10:00",
-    "duration" => "1 hour",
-    "room_id" => rooms.sample.id,
-    "instructor_id" => instructors.sample.id
-  }
-)
-gym_class2 = GymClass.new(
-  {
-    "type" => "Zumba",
-    "start_date" => "2019-10-22",
-    "start_time" => "11:00",
-    "duration" => "30 minutes",
-    "room_id" => rooms[2].id,
-    "instructor_id" => instructors[1].id
-  }
-)
-gym_class3 = GymClass.new(
-  {
-    "type" => "Calisthenics",
-    "start_date" => "2019-10-20",
-    "start_time" => "14:00",
-    "duration" => "45 minutes",
-    "room_id" => rooms[1].id,
-    "instructor_id" => instructors[2].id
-  }
-)
-gym_class1.save
-gym_class2.save
-gym_class3.save
+gym_classes = []
+gym_class_quantity.times{
+  gym_classes.push(
+    GymClass.new(
+      {
+        "type" => types.sample,
+        "start_date" => "#{year}-#{months.sample}-#{days.sample}",
+        "start_time" => times.sample,
+        "duration" => durations.sample,
+        "room_id" => rooms.sample,
+        "instructor_id" => instructors.sample
+      }
+    )
+  )
+}
+gym_classes.each do |gc|
+  if gc.check_room_free && gc.check_instructor_free
+    gc.save
+  end
+end
 
-booking1 = Booking.new(
-  {
-    "member_id" => members[1].id,
-    "gym_class_id" => gym_class1.id
-  }
-)
-booking2 = Booking.new(
-  {
-    "member_id" => members[1].id,
-    "gym_class_id" => gym_class2.id
-  }
-)
-booking3 = Booking.new(
-  {
-    "member_id" => members[2].id,
-    "gym_class_id" => gym_class3.id
-  }
-)
-booking4 = Booking.new(
-  {
-    "member_id" => members[3].id,
-    "gym_class_id" => gym_class3.id
-  }
-)
-booking1.save
-gym_class1.booked_space
-
-booking2.save
-gym_class2.booked_space
-
-booking3.save
-gym_class3.booked_space
-
-booking4.save
-gym_class3.booked_space
+bookings = []
+booking_quantity.times{
+  bookings.push(
+    Booking.new(
+      {
+        "member_id" => members.sample.id,
+        "gym_class_id" => gym_classes.sample.id
+      }
+    )
+  )
+}
+bookings.each do |booking|
+  booking.save
+  booking.gym_class.booked_space
+end
 
 binding.pry
 nil
