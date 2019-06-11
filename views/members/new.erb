@@ -46,6 +46,12 @@
       value="<%= @member.phone if @member %>">
     </p>
 
+    <p>
+      <label for="membership">Membership Type:</label>
+      <input type="text" name="membership" id="membership"
+      value="<%= @member.membership if @member %>">
+    </p>
+
     <input type="submit" value="Save Details">
   </form>
 </section>

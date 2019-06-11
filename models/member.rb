@@ -4,7 +4,7 @@ require_relative("gym_class")
 class Member
 
   attr_reader :id
-  attr_accessor :first_name, :last_name, :date_of_birth, :street, :city, :postcode, :phone
+  attr_accessor :first_name, :last_name, :date_of_birth, :street, :city, :postcode, :phone, :membership
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
@@ -15,27 +15,28 @@ class Member
     @city = options["city"]
     @postcode = options["postcode"]
     @phone = options["phone"]
+    @membership = options["membership"]
   end
 
   def save
     sql = "INSERT INTO members (
       first_name, last_name, date_of_birth, street,
-      city, postcode, phone
+      city, postcode, phone, membership
     ) VALUES (
-      $1, $2, $3, $4, $5, $6, $7
+      $1, $2, $3, $4, $5, $6, $7, $8
     ) RETURNING *"
-    values = [@first_name, @last_name, @date_of_birth, @street, @city, @postcode, @phone]
+    values = [@first_name, @last_name, @date_of_birth, @street, @city, @postcode, @phone, @membership]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
   def update
     sql = "UPDATE members SET (
       first_name, last_name, date_of_birth, street,
-      city, postcode, phone
+      city, postcode, phone, membership
     ) = (
-      $1, $2, $3, $4, $5, $6, $7
-    ) WHERE id = $8"
-    values = [@first_name, @last_name, @date_of_birth, @street, @city, @postcode, @phone, @id]
+      $1, $2, $3, $4, $5, $6, $7, $8
+    ) WHERE id = $9"
+    values = [@first_name, @last_name, @date_of_birth, @street, @city, @postcode, @phone, @membership, @id]
     SqlRunner.run(sql, values)
   end
 

@@ -57,7 +57,7 @@ postcodes = ["EH4 6HD", "G1 4BX", "FK4 7LY"]
 
 phones = ["0131 223 4455", "0131 210 8732", "0131 430 9938"]
 
-member_levels = ["Premium", "Standard"]
+memberships = ["Premium", "Standard"]
 
 members = []
 member_quantity.times{
@@ -71,7 +71,7 @@ member_quantity.times{
         "city" => cities.sample,
         "postcode" => postcodes.sample,
         "phone" => phones.sample,
-        "member_level" => member_levels.sample
+        "membership" => memberships.sample
       }
     )
   )
