@@ -109,8 +109,8 @@ gym_class_quantity.times{
         "start_date" => "#{year}-#{months.sample}-#{days.sample}",
         "start_time" => times.sample,
         "duration" => durations.sample,
-        "room_id" => rooms.sample,
-        "instructor_id" => instructors.sample
+        "room_id" => rooms.sample.id,
+        "instructor_id" => instructors.sample.id
       }
     )
   )
