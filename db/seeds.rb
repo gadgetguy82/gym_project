@@ -28,9 +28,9 @@ gym = Gym.new(
 )
 gym.save
 
-first_names = ["Andrew", "Betty", "Charles", "Daniella", "Eric", "Frieda", "Greg", "Helga", "Ian", "Jack", "Kevin", "Larry", "Matthew", "Nigel", "Oscar"]
+first_names = ["Andrew", "Betty", "Charles", "Daniella", "Eric", "Frieda", "Greg", "Helga", "Ian", "Jane", "Kevin", "Laura", "Matthew", "Natalie", "Oscar", "Pauline", "Richard", "Sarah", "Thomas", "Una", "Victor", "Wendy"]
 
-last_names = ["Anderson", "Bailey", "Christie", "Dyer", "Egerton", "Fogel", "Glass", "Henley", "Innes", "Johnson", "Kent", "Little", "McIntyre", "Nichols", "Osbourne"]
+last_names = ["Anderson", "Bailey", "Christie", "Dyer", "Egerton", "Fogel", "Glass", "Henley", "Innes", "Johnson", "Kent", "Little", "McIntyre", "Nichols", "Osbourne", "Pickles", "Quirke", "Raimi", "Stevenson", "Trent"]
 
 instructors = []
 instructor_quantity.times{
@@ -57,6 +57,8 @@ postcodes = ["EH4 6HD", "G1 4BX", "FK4 7LY"]
 
 phones = ["0131 223 4455", "0131 210 8732", "0131 430 9938"]
 
+member_levels = ["Premium", "Standard"]
+
 members = []
 member_quantity.times{
   members.push(
@@ -68,7 +70,8 @@ member_quantity.times{
         "street" => streets.sample,
         "city" => cities.sample,
         "postcode" => postcodes.sample,
-        "phone" => phones.sample
+        "phone" => phones.sample,
+        "member_level" => member_levels.sample
       }
     )
   )

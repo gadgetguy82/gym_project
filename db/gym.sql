@@ -26,7 +26,8 @@ CREATE TABLE members (
   street VARCHAR(255),
   city VARCHAR(255),
   postcode VARCHAR(255),
-  phone VARCHAR(255)
+  phone VARCHAR(255),
+  member_level VARCHAR(255)
 );
 
 CREATE TABLE rooms (

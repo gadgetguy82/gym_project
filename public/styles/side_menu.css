@@ -22,6 +22,9 @@
   border-bottom: 1px solid #BBBBBB;
   padding: 10px 35px;
   overflow: hidden;
+  border-top: 3px #FFD700;
+  border-left: 3px #FFD700;
+  border-right: 3px #FFD700;
 }
 
 .side_nav li:before {
@@ -48,6 +51,7 @@
   font-size: 25px;
   color: #CCFFCC;
   text-align: center;
+  text-decoration: none;
 }
 
 .side_nav li:hover {
