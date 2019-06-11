@@ -71,4 +71,9 @@ class Instructor
     return data.map{|instructor| Instructor.new(instructor)}
   end
 
+  def self.get_matching_names(search)
+    instructors = Instructor.all
+    return instructors.find_all{|instructor| instructor.pretty_name.include?(search)}
+  end
+
 end

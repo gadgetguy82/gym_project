@@ -18,6 +18,11 @@ post "/instructors/new" do
   erb(:"instructors/show")
 end
 
+post "/instructors/search" do
+  @instructors = Instructor.get_matching_names(params[:search])
+  erb(:"instructors/index")
+end
+
 get "/instructors/:id" do
   @instructor = Instructor.find(params[:id])
   erb(:"instructors/show")
