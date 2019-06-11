@@ -39,7 +39,7 @@ CREATE TABLE gym_classes (
   id SERIAL8 PRIMARY KEY,
   type VARCHAR(255),
   date_time TIMESTAMP,
-  duration VARCHAR(255),
+  duration INTERVAL,
   spaces_taken INT2,
   room_id INT2 REFERENCES rooms(id) ON DELETE CASCADE,
   instructor_id INT8 REFERENCES instructors(id) ON DELETE CASCADE

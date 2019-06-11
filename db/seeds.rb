@@ -13,6 +13,12 @@ Member.delete_all
 Instructor.delete_all
 Gym.delete_all
 
+instructor_quantity = 10
+member_quantity = 20
+room_quantity = 5
+gym_class_quantity = 5
+booking_quantity = 10
+
 gym = Gym.new(
   {
     "name" => "Agile Fitness",
@@ -27,7 +33,7 @@ first_names = ["Andrew", "Betty", "Charles", "Daniella", "Eric", "Frieda", "Greg
 last_names = ["Anderson", "Bailey", "Christie", "Dyer", "Egerton", "Fogel", "Glass", "Henley", "Innes", "Johnson", "Kent", "Little", "McIntyre", "Nichols", "Osbourne"]
 
 instructors = []
-10.times{
+instructor_quantity.times{
   instructors.push(
     Instructor.new(
       {
@@ -52,7 +58,7 @@ postcodes = ["EH4 6HD", "G1 4BX", "FK4 7LY"]
 phones = ["0131 223 4455", "0131 210 8732", "0131 430 9938"]
 
 members = []
-20.times{
+member_quantity.times{
   members.push(
     Member.new(
       {
@@ -74,7 +80,7 @@ names = ["Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel
 capacities = [10, 20, 30, 40, 50]
 
 rooms = []
-5.times{
+room_quantity.times{
   rooms.push(
     Room.new(
       {
@@ -86,7 +92,7 @@ rooms = []
 }
 rooms.each{|room| room.save}
 
-types = ["Calisthenics", "Yoga", "Zumba"]
+types = ["Calisthenics", "Judo", "Karate", "Yoga", "Zumba"]
 
 gym_class1 = GymClass.new(
   {
@@ -94,8 +100,8 @@ gym_class1 = GymClass.new(
     "start_date" => "2019-10-23",
     "start_time" => "10:00",
     "duration" => "1 hour",
-    "room_id" => rooms[1].id,
-    "instructor_id" => instructors[1].id
+    "room_id" => rooms.sample.id,
+    "instructor_id" => instructors.sample.id
   }
 )
 gym_class2 = GymClass.new(

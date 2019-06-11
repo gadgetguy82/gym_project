@@ -18,8 +18,12 @@ end
 
 post "/gym_classes/new" do
   @gym_class = GymClass.new(params)
-  @gym_class.save
-  erb(:"gym_classes/show")
+  if @gym_class.check_room_free && @gym_class.check_instructor_free
+    @gym_class.save
+    erb(:"gym_classes/show")
+  else
+    erb(:"gym_classes/fail")
+  end
 end
 
 get "/gym_classes/upcoming" do
@@ -41,8 +45,12 @@ end
 
 post "/gym_classes/:id/edit" do
   @gym_class = GymClass.new(params)
-  @gym_class.update
-  erb(:"gym_classes/show")
+  if @gym_class.check_room_free && @gym_class.check_instructor_free
+    @gym_class.update
+    erb(:"gym_classes/show")
+  else
+    erb(:"gym_classes/fail")
+  end
 end
 
 post "/gym_classes/:id/delete" do

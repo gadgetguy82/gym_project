@@ -1,3 +1,4 @@
+require("date")
 require_relative("../db/sql_runner")
 require_relative("member")
 require_relative("room")
@@ -87,19 +88,56 @@ class GymClass
     update
   end
 
+  def create_date_time
+    return DateTime.strptime(@date_time, "%Y-%m-%d %H:%M")
+  end
+
   def date
-    date = date_time.gsub(/\s+/m, ' ').strip.split(" ")[0]
-    return date
+    return self.create_date_time.to_date
   end
 
   def time
-    time = date_time.gsub(/\s+/m, ' ').strip.split(" ")[1]
-    return time
+    return self.create_date_time.to_time
   end
 
   def pretty_date_time
-    dt = Time.parse(date_time)
-    return dt.strftime("%d/%m/%Y %H:%M")
+    return self.create_date_time.strftime("%d/%m/%Y %H:%M")
+  end
+
+  def instructor_has_gym_class
+    sql = "SELECT i.* FROM instructors i
+    INNER JOIN gym_classes gc ON i.id = gc.instructor_id
+    WHERE i.id = $1 AND gc.date_time <= $2
+    AND gc.date_time + gc.duration >= $2"
+    values = [@instructor_id, @date_time]
+    instructors_data = SqlRunner.run(sql, values)
+    return Instructor.map_items(instructors_data)
+  end
+
+  def check_instructor_free
+    if self.instructor_has_gym_class != []
+      return false
+    else
+      return true
+    end
+  end
+
+  def room_has_gym_class
+    sql = "SELECT r.* FROM rooms r
+    INNER JOIN gym_classes gc ON r.id = gc.room_id
+    WHERE r.id = $1 AND gc.date_time <= $2
+    AND gc.date_time + gc.duration >= $2"
+    values = [@room_id, @date_time]
+    rooms_data = SqlRunner.run(sql, values)
+    return Room.map_items(rooms_data)
+  end
+
+  def check_room_free
+    if self.room_has_gym_class != []
+      return false
+    else
+      return true
+    end
   end
 
   def self.all
