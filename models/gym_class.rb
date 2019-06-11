@@ -140,6 +140,14 @@ class GymClass
     end
   end
 
+  def check_room_cap_reached
+    if @spaces_taken > self.room.capacity
+      return true
+    else
+      return false
+    end
+  end
+
   def self.all
     sql = "SELECT * FROM gym_classes"
     gym_classes_data = SqlRunner.run(sql)

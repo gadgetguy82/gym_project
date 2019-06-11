@@ -18,7 +18,7 @@ end
 
 post "/gym_classes/new" do
   @gym_class = GymClass.new(params)
-  if @gym_class.check_room_free && @gym_class.check_instructor_free
+  if @gym_class.check_room_free && @gym_class.check_instructor_free && !@gym_class.check_room_cap_reached
     @gym_class.save
     erb(:"gym_classes/show")
   else
