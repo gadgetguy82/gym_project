@@ -18,6 +18,16 @@ post "/members/new" do
   erb(:"members/show")
 end
 
+get "/members/premium" do
+  @members = Member.premium_members
+  erb(:"members/index")
+end
+
+get "/members/standard" do
+  @members = Member.standard_members
+  erb(:"members/index")
+end
+
 get "/members/:id" do
   @member = Member.find(params[:id])
   erb(:"members/show")

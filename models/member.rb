@@ -94,4 +94,16 @@ class Member
     return data.map{|member| Member.new(member)}
   end
 
+  def self.premium_members
+    sql = "SELECT * FROM members WHERE membership = 'Premium'"
+    members_data = SqlRunner.run(sql)
+    return map_items(members_data)
+  end
+
+  def self.standard_members
+    sql = "SELECT * FROM members WHERE membership = 'Standard'"
+    members_data = SqlRunner.run(sql)
+    return map_items(members_data)
+  end
+
 end
