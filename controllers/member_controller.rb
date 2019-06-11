@@ -20,12 +20,16 @@ end
 
 get "/members/premium" do
   @members = Member.premium_members
-  erb(:"members/index")
+  erb(:"members/premium")
 end
 
 get "/members/standard" do
   @members = Member.standard_members
-  erb(:"members/index")
+  erb(:"members/standard")
+end
+
+post "/members/search" do
+  search = params[:search]
 end
 
 get "/members/:id" do
