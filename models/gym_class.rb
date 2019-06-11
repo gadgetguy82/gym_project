@@ -177,4 +177,8 @@ class GymClass
     return upcoming
   end
 
+  def self.today
+    return Date.today
+  end
+
 end

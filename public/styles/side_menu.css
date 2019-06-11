@@ -36,7 +36,7 @@
 
 .side_nav li:before {
   font-family: FontAwesome;
-	content:"\f07a";
+	content: url("");
 	position: absolute;
 	top: 11px;
 	left: -30px;

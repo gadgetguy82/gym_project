@@ -13,6 +13,7 @@ end
 get "/gym_classes/new" do
   @rooms = Room.all
   @instructors = Instructor.all
+  @date = GymClass.today
   erb(:"gym_classes/new")
 end
 
