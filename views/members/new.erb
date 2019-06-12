@@ -18,19 +18,19 @@
     <p>
       <label for="first-name">First Name:</label>
       <input type="text" name="first_name" id="first-name"
-      value="<%= @member.first_name if @member %>">
+      value="<%= @member.first_name if @member %>" required>
     </p>
 
     <p>
       <label for="last-name">Last Name:</label>
       <input type="text" name="last_name" id="last-name"
-      value="<%= @member.last_name if @member %>">
+      value="<%= @member.last_name if @member %>" required>
     </p>
 
     <p>
       <label for="date-of-birth">Date of Birth:</label>
       <input type="date" name="date_of_birth" id="date-of-birth"
-      value="<%= @member.html_date if @member %>">
+      value="<%= @member.html_date if @member %>" required>
     </p>
 
     <p>
@@ -53,14 +53,14 @@
 
     <p>
       <label for="phone">Contact Number:</label>
-      <input type="text" name="phone" id="phone"
+      <input type="tel" name="phone" id="phone"
       value="<%= @member.phone if @member %>">
     </p>
 
     <p>
       <label for="membership">Membership Type:</label>
       <input type="text" name="membership" id="membership"
-      value="<%= @member.membership if @member %>">
+      value="<%= @member.membership if @member %>" required>
     </p>
 
     <input type="submit" value="Save Details">

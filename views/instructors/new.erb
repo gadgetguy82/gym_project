@@ -16,13 +16,13 @@
     <p>
       <label for="first-name">First Name:</label>
       <input type="text" name="first_name" id="first-name"
-      value="<%= @instructor.first_name if @instructor %>">
+      value="<%= @instructor.first_name if @instructor %>" required>
     </p>
 
     <p>
       <label for="last-name">Last Name:</label>
       <input type="text" name="last_name" id="last-name"
-      value="<%= @instructor.last_name if @instructor %>">
+      value="<%= @instructor.last_name if @instructor %>" required>
     </p>
 
     <input type="submit" value="Save Details">

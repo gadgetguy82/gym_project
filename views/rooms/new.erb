@@ -16,13 +16,13 @@
     <p>
     <label for="name">Room name:</label>
     <input type="text" name="name" id="name"
-    value="<%= @room.name if @room %>">
+    value="<%= @room.name if @room %>" required>
     </p>
 
     <p>
     <label for="capacity">Room capacity:</label>
     <input type="number" name="capacity" id="capacity"
-    value="<%= @room.capacity if @room %>">
+    value="<%= @room.capacity if @room %>" required>
     </p>
 
     <input type="submit" value="Save room">

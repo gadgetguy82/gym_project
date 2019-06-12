@@ -15,23 +15,23 @@
   <form action="/gym_classes/new" method="post">
     <p>
       <label for="type">Type:</label>
-      <input type="text" name="type" id="type">
+      <input type="text" name="type" id="type" required>
     </p>
 
     <p>
       <label for="start-date">Date:</label>
-      <input type="date" name="start_date" id="start-date" min="<%= @date %>">
+      <input type="date" name="start_date" id="start-date" min="<%= @date %>" required>
 
       <label for="start-time">Time:</label>
-      <input type="time" name="start_time" id="start-time">
+      <input type="time" name="start_time" id="start-time" required>
 
       <label for="duration">Duration:</label>
-      <input type="text" name="duration" id="duration">
+      <input type="text" name="duration" id="duration" required>
     </p>
 
     <p>
       <label for="instructor">Instructor:</label>
-      <select name="instructor_id" id="instructor">
+      <select name="instructor_id" id="instructor" required>
         <% @instructors.each do |instructor| %>
         <option value="<%= instructor.id %>">
           <%= instructor.pretty_name %>
@@ -40,7 +40,7 @@
       </select>
 
       <label for="room">Room:</label>
-      <select name="room_id" id="room" style="width:100px">
+      <select name="room_id" id="room" required>
         <% @rooms.each do |room| %>
         <option value="<%= room.id %>">
           <%= room.name %>
