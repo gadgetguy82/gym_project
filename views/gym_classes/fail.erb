@@ -12,22 +12,27 @@
 </nav>
 
 <section>
-<p>
-<%= @gym_class.type %> Class
-<%= @gym_class.pretty_date_time %>
-<%= @gym_class.duration %>
-<%= @gym_class.spaces %>
-<%= @gym_class.instructor.pretty_name %>
-<%= @gym_class.room.name %>
-</p>
+  <p>
+    <%= @gym_class.type %> Class
+  </p>
+  <p>
+    <%= @gym_class.pretty_date_time %>
+  </p>
+  <p>
+    Duration: <%= @gym_class.duration %>
+  </p>
 
-<% if @gym_class.id %>
+  <p>
+    <%= @msg %>
+  </p>
+
+  <% if @gym_class.id %>
   <p><a href="/gym_classes/<%= @gym_class.id %>/edit">Edit details</a></p>
   <br>
-<% else %>
+  <% else %>
   <form action="/gym_classes/new"></form>
   <p><input type="submit" value="Edit details"></p>
   <br>
-<% end %>
+  <% end %>
 
 </section>

@@ -19,11 +19,15 @@ end
 
 post "/gym_classes/new" do
   @gym_class = GymClass.new(params)
-  if @gym_class.check_room_free && @gym_class.check_instructor_free && !@gym_class.check_room_cap_reached
+  if !@gym_class.check_instructor_free
+    @msg = "Instructor already scheduled for another class"
+    erb(:"gym_classes/fail")
+  elsif !@gym_class.check_room_free
+    @msg = "Room already booked for another class"
+    erb(:"gym_classes/fail")
+  else
     @gym_class.save
     erb(:"gym_classes/show")
-  else
-    erb(:"gym_classes/fail")
   end
 end
 
@@ -51,11 +55,18 @@ end
 
 post "/gym_classes/:id/edit" do
   @gym_class = GymClass.new(params)
-  if @gym_class.check_room_free && @gym_class.check_instructor_free
-    @gym_class.update
-    erb(:"gym_classes/show")
-  else
+  if !@gym_class.check_instructor_free
+    @msg = "Instructor already scheduled for another class"
     erb(:"gym_classes/fail")
+  elsif !@gym_class.check_room_free
+    @msg = "Room already booked for another class"
+    erb(:"gym_classes/fail")
+  elsif @gym_class.check_room_cap_reached
+    @msg = "Room capacity is not enough to fit the current class"
+    erb(:"gym_classes/fail")
+  else
+    @gym_class.save
+    erb(:"gym_classes/show")
   end
 end
 
