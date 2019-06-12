@@ -37,12 +37,12 @@ end
 
 post "/members/premium-search" do
   @members = Member.get_matching_premium_names(params[:search])
-  erb(:"members/index")
+  erb(:"members/premium")
 end
 
 post "/members/standard-search" do
   @members = Member.get_matching_standard_names(params[:search])
-  erb(:"members/index")
+  erb(:"members/standard")
 end
 
 get "/members/:id" do
