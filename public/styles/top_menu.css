@@ -17,6 +17,7 @@
   float: right;
   display: inline;
   border-left: 1px solid #BBBBBB;
+  border-right: 1px solid #BBBBBB;
 }
 
 .top_nav a {

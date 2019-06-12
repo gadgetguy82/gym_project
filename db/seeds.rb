@@ -16,8 +16,8 @@ Gym.delete_all
 instructor_quantity = 10
 member_quantity = 20
 room_quantity = 5
-gym_class_quantity = 5
-booking_quantity = 10
+gym_class_quantity = 10
+booking_quantity = 15
 
 gym = Gym.new(
   {
@@ -97,7 +97,7 @@ room_quantity.times{
 }
 rooms.each{|room| room.save}
 
-types = ["Calisthenics", "Judo", "Karate", "Yoga", "Zumba"]
+types = ["Body Balance", "Calisthenics", "Core Conditioning", "Judo", "Karate", "Pilates", "Step Aerobics", "Yoga", "Zumba"]
 year = 2019
 times = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"]
 durations = ["1 hour", "50 minutes", "40 minutes", "30 minutes"]
@@ -139,5 +139,5 @@ bookings.each do |booking|
   booking.gym_class.booked_space
 end
 
-binding.pry
-nil
+# binding.pry
+# nil

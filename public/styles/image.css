@@ -1,0 +1,26 @@
+.diagram {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+}
+
+.class {
+  content: url("../images/gym_class_diagram.png");
+}
+
+.sketch {
+  content: url("../images/gym_website_sketch.png");
+}
+
+.presentation {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+}
+
+li.right {
+  padding-right: 20px;
+}
