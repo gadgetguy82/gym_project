@@ -59,4 +59,9 @@ class Room
     return data.map{|room| Room.new(room)}
   end
 
+  def self.get_matching_names(search)
+    rooms = Room.all
+    return rooms.find_all{|room| room.name.include?(search)}
+  end
+
 end

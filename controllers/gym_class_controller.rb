@@ -37,7 +37,7 @@ get "/gym_classes/upcoming" do
 end
 
 post "/gym_classes/search" do
-  @gym_classes = GymClass.get_matching_types
+  @gym_classes = GymClass.get_matching_types(params[:search])
   erb(:"gym_classes/index")
 end
 
@@ -65,7 +65,7 @@ post "/gym_classes/:id/edit" do
     @msg = "Room capacity is not enough to fit the current class"
     erb(:"gym_classes/fail")
   else
-    @gym_class.save
+    @gym_class.update
     erb(:"gym_classes/show")
   end
 end

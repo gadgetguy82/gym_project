@@ -18,6 +18,11 @@ post "/rooms/new" do
   erb(:"rooms/show")
 end
 
+post "/rooms/search" do
+  @rooms = Room.get_matching_names(params[:search])
+  erb(:"rooms/index")
+end
+
 get "/rooms/:id" do
   @room = Room.find(params[:id])
   erb(:"rooms/show")
