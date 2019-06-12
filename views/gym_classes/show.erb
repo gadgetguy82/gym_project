@@ -1,6 +1,8 @@
 <nav class="top_nav">
   <ul>
     <li><a href="/about_us">About Us</a></li>
+    <li><a href="/gym_classes/upcoming">Show upcoming classes</a></li>
+    <li><a href="/gym_classes">Show all classes</a></li>
     <li><a href="/gym_classes/new">Create Class</a></li>
     <li>
       <form action="/gym_classes/search" method="post">
@@ -12,14 +14,12 @@
 </nav>
 
 <section>
-  <p>
-    <%= @gym_class.type %> Class
-    <%= @gym_class.pretty_date_time %>
-    <%= @gym_class.duration %>
-    <%= @gym_class.spaces %>
-    <%= @gym_class.instructor.pretty_name %>
-    <%= @gym_class.room.name %>
-  </p>
+  <p><%= @gym_class.type %> Class</p>
+  <p><%= @gym_class.pretty_date_time %></p>
+  <p>Duration: <%= @gym_class.duration %></p>
+  <p><%= @gym_class.spaces %> spaces left</p>
+  <p>Run by instructor <%= @gym_class.instructor.pretty_name %></p>
+  <p>in room <%= @gym_class.room.name %></p>
 
   <% @gym_class.members.each do |member| %>
   <p><%= member.pretty_name %></p>

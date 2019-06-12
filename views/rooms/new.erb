@@ -14,13 +14,13 @@
 <section>
   <form action="/rooms/<% if @room %><%= @room.id %>/edit<% else %><%= "new" %><% end %>" method="post">
     <p>
-    <label for="name">Room name:</label>
+    <label for="name">Room Name:</label>
     <input type="text" name="name" id="name"
     value="<%= @room.name if @room %>" required>
     </p>
 
     <p>
-    <label for="capacity">Room capacity:</label>
+    <label for="capacity">Room Capacity:</label>
     <input type="number" name="capacity" id="capacity"
     value="<%= @room.capacity if @room %>" min="0" required>
     </p>

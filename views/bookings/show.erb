@@ -5,7 +5,7 @@
 </nav>
 
 <section>
-  <p><%= @booking.member.pretty_name %></p>
-  <p><%= @booking.gym_class.type %></p>
+  <p><%= @booking.member.pretty_name %> reserved a place for <%= booking.gym_class.type %></p>
+  <p>on <%= booking.gym_class.pretty_date %> at <%= booking.gym_class.time %></p>
   <p><a class="link_button" href="/bookings/<%= @booking.member_id %>">Book another class</a></p>
 </section>

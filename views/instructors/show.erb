@@ -12,7 +12,7 @@
 </nav>
 
 <section>
-  <p><%= @instructor.pretty_name %></p>
+  <p>Instructor Name: <%= @instructor.pretty_name %></p>
   <p><a href="/instructors/<%= @instructor.id %>/edit">Edit details</a></p>
   <br>
   <form action="/instructors/<%= @instructor.id %>/delete" method="post">

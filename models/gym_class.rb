@@ -101,6 +101,10 @@ class GymClass
     return self.create_date_time.strftime("%H:%M")
   end
 
+  def pretty_date
+    return self.create_date_time.strftime("%d/%m/%Y")
+  end
+
   def pretty_date_time
     return self.create_date_time.strftime("%d/%m/%Y %H:%M")
   end

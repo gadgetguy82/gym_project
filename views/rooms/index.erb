@@ -13,8 +13,8 @@
 
 <section>
   <% @rooms.each do |room| %>
-  <p><%= room.name %></p>
-  <p><%= room.capacity %></p>
+  <p>Room Name: <%= room.name %></p>
+  <p>Room Capacity: <%= room.capacity %></p>
   <p><a class="link_button" href="/rooms/<%= room.id %>">Go to room details</a></p>
   <hr>
   <% end %>
