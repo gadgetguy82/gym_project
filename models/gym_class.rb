@@ -181,7 +181,7 @@ class GymClass
   def self.standard_classes
     gym = Gym.return_this_gym
     gym_classes = self.upcoming_classes
-    standard = gym_classes.find_all{|gc| gc.time < gym.start_peak && gc.time > gym.stop_peak}
+    standard = gym_classes.find_all{|gc| gc.time < gym.start_peak || gc.time > gym.stop_peak}
     return standard
   end
 

@@ -15,7 +15,7 @@ get "/bookings/:member_id" do
   if @member.membership == "Standard"
     @gym_classes = GymClass.standard_classes
   else
-    @gym_classes = GymClass.all
+    @gym_classes = GymClass.upcoming_classes
   end
   erb(:"bookings/new")
 end
