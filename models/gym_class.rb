@@ -3,6 +3,7 @@ require_relative("../db/sql_runner")
 require_relative("member")
 require_relative("room")
 require_relative("instructor")
+require_relative("gym")
 
 class GymClass
 
@@ -175,6 +176,13 @@ class GymClass
     current_date = Time.now
     upcoming = gym_classes.find_all{|gc| gc.date_time > current_date}
     return upcoming
+  end
+
+  def self.standard_classes
+    gym = Gym.return_this_gym
+    gym_classes = self.upcoming_classes
+    standard = gym_classes.find_all{|gc| gc.time < gym.start_peak && gc.time > gym.stop_peak}
+    return standard
   end
 
   def self.today

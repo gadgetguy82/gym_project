@@ -12,7 +12,11 @@ end
 
 get "/bookings/:member_id" do
   @member = Member.find(params[:member_id])
-  @gym_classes = GymClass.all
+  if @member.membership == "Standard"
+    @gym_classes = GymClass.standard_classes
+  else
+    @gym_classes = GymClass.all
+  end
   erb(:"bookings/new")
 end
 
