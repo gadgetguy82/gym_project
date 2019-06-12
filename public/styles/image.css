@@ -13,6 +13,22 @@
   content: url("../images/gym_website_sketch.png");
 }
 
+.db {
+  content: url("../images/gym_classes_table.png");
+}
+
+.constraints {
+  content: url("../images/gym_class_constraint.png");
+}
+
+.query {
+  content: url("../images/sql_query.png");
+}
+
+.gym {
+  content: url("../images/create_gym_class.png");
+}
+
 .presentation {
   display: flex;
   flex-direction: row-reverse;

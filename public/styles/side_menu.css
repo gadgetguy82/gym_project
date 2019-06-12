@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: linear-gradient(to bottom right, #003399, #0099CC);
+  /* background: linear-gradient(to bottom right, #003399, #0099CC); */
   overflow: auto;
 }
 
@@ -19,6 +19,7 @@
   position: relative;
   padding: 10px 35px;
   overflow: hidden;
+  background: linear-gradient(to bottom right, #003399, #0099CC);
   border-top: 8px solid #FFD700;
   border-bottom: 8px solid #FFFF33;
   border-left: 8px solid #FFD700;
