@@ -191,7 +191,7 @@ class GymClass
 
   def self.get_matching_types(search)
     gym_classes = GymClass.all
-    return gym_classes.find_all{|gym_class| gym_class.type.include?(search)
+    return gym_classes.find_all{|gym_class| gym_class.type.downcase.include?(search.downcase)
     }
   end
 

@@ -73,7 +73,7 @@ class Instructor
 
   def self.get_matching_names(search)
     instructors = Instructor.all
-    return instructors.find_all{|instructor| instructor.pretty_name.include?(search)}
+    return instructors.find_all{|instructor| instructor.pretty_name.downcase.include?(search.downcase)}
   end
 
 end

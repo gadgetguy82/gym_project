@@ -108,17 +108,17 @@ class Member
 
   def self.get_matching_names(search)
     members = Member.all
-    return members.find_all{|member| member.pretty_name.include?(search)}
+    return members.find_all{|member| member.pretty_name.downcase.include?(search.downcase)}
   end
 
   def self.get_matching_premium_names(search)
     members = Member.premium_members
-    return members.find_all{|member| member.pretty_name.include?(search)}
+    return members.find_all{|member| member.pretty_name.downcase.include?(search.downcase)}
   end
 
   def self.get_matching_standard_names(search)
     members = Member.standard_members
-    return members.find_all{|member| member.pretty_name.include?(search)}
+    return members.find_all{|member| member.pretty_name.downcase.include?(search.downcase)}
   end
 
 end

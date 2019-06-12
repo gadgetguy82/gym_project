@@ -61,7 +61,7 @@ class Room
 
   def self.get_matching_names(search)
     rooms = Room.all
-    return rooms.find_all{|room| room.name.include?(search)}
+    return rooms.find_all{|room| room.name.downcase.include?(search.downcase)}
   end
 
 end
