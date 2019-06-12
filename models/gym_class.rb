@@ -173,8 +173,8 @@ class GymClass
 
   def self.upcoming_classes
     gym_classes = self.all
-    current_date = Time.now
-    upcoming = gym_classes.find_all{|gc| gc.date_time > current_date}
+    current_date = Date.today
+    upcoming = gym_classes.find_all{|gc| gc.create_date_time.to_datetime > current_date}
     return upcoming
   end
 
