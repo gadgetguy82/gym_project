@@ -14,6 +14,7 @@ get "/gyms/:id/edit" do
 end
 
 post "/gyms/:id/edit" do
-  @gym.new(params[:id])
+  @gym.new(params)
+  @gym.update
   erb(:"gyms/show")
 end

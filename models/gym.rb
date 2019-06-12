@@ -7,27 +7,28 @@ class Gym
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
+    @name = options["name"]
     @start_peak = options["start_peak"]
     @stop_peak = options["stop_peak"]
   end
 
   def save
     sql = "INSERT INTO gyms (
-      start_peak, stop_peak
+      name, start_peak, stop_peak
     ) VALUES (
-      $1, $2
+      $1, $2, $3
     ) RETURNING *"
-    values = [@start_peak, @stop_peak]
+    values = [@name, @start_peak, @stop_peak]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
   def update
     sql = "UPDATE gyms SET (
-      start_peak, stop_peak
+      name, start_peak, stop_peak
     ) = (
-      $1, $2
-    ) WHERE id = $3"
-    values = [@start_peak, @stop_peak, @id]
+      $1, $2, $3
+    ) WHERE id = $4"
+    values = [@name, @start_peak, @stop_peak, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -45,7 +46,7 @@ class Gym
 
   def self.find(id)
     sql = "SELECT * FROM gyms WHERE id = $1"
-    values = [@id]
+    values = [id]
     gym_data = SqlRunner.run(sql, values)[0]
     return Gym.new(gym_data)
   end

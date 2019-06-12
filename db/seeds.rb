@@ -82,16 +82,18 @@ names = ["Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel
 
 capacities = [10, 20, 30, 40, 50]
 
+index = 0
 rooms = []
 room_quantity.times{
   rooms.push(
     Room.new(
       {
-        "name" => names.sample,
+        "name" => names[index],
         "capacity" => capacities.sample
       }
     )
   )
+  index += 1
 }
 rooms.each{|room| room.save}
 
