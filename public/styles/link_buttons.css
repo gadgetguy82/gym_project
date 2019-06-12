@@ -1,3 +1,15 @@
+form {
+
+}
+
 .view_button {
-  
+  display: inline-block;
+  height: 50px;
+  width: 200px;
+  background: none;
+  border: none;
+  border-radius: 25px;
+  background-color: #90EE90;
+  color: #000000;
+  text-align: center;
 }

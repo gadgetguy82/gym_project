@@ -17,6 +17,7 @@ p {
 input {
   background: none;
   color: #000000;
+  border-color: #FFFF00;
   font-size: 20px;
 }
 
@@ -24,7 +25,7 @@ select {
   font-size: 20px;
 }
 
-.welcome-container {
+.presentation-container {
   top: 30px;
   position: relative;
 }
