@@ -25,11 +25,11 @@
   <p><%= member.pretty_name %></p>
   <% end %>
 
-  <p><a href="/gym_classes/<%= @gym_class.id %>/edit">Edit details</a></p>
+  <p><a class="link_button" href="/gym_classes/<%= @gym_class.id %>/edit">Edit details</a></p>
   <br>
 
   <form action="/gym_classes/<%= @gym_class.id %>/delete"
     method="post">
-    <input class="view_button" type="submit" value="Delete Class">
+    <input class="view_button delete" type="submit" value="Delete Class">
   </form>
 </section>

@@ -27,7 +27,7 @@
   </p>
 
   <% if @gym_class.id %>
-  <p><a href="/gym_classes/<%= @gym_class.id %>/edit">Edit details</a></p>
+  <p><a class="link_button" href="/gym_classes/<%= @gym_class.id %>/edit">Edit details</a></p>
   <br>
   <% else %>
   <form action="/gym_classes/new"></form>

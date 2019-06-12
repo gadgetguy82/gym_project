@@ -10,7 +10,7 @@
   <p><%= booking.gym_class.type %></p>
   <br>
   <form action="/bookings/<%= booking.id %>/delete" method="post">
-    <input class="view_button" type="submit" value="Cancel booking">
+    <input class="view_button delete" type="submit" value="Cancel booking">
   </form>
   <hr>
   <% end %>

@@ -19,12 +19,12 @@
   <p><%= @member.pretty_address %></p>
   <p><%= @member.phone %></p>
   <p><%= @member.membership %></p>
-  <p><a href="/members/<%= @member.id %>/edit">Edit details</a></p>
+  <p><a class="link_button" href="/members/<%= @member.id %>/edit">Edit details</a></p>
 
-  <p><a href="/bookings/<%= @member.id %>">Book a class</a></p>
+  <p><a class="link_button" href="/bookings/<%= @member.id %>">Book a class</a></p>
   <br>
 
   <form action="/members/<%= @member.id %>/delete" method="post">
-    <input class="view_button" type="submit" value="Delete Member">
+    <input class="view_button delete" type="submit" value="Delete Member">
   </form>
 </section>

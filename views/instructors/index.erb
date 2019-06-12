@@ -14,7 +14,7 @@
 <section>
   <% @instructors.each do |instructor| %>
   <p><%= instructor.pretty_name %></p>
-  <p><a href="/instructors/<%= instructor.id %>">Show details</a></p>
+  <p><a class="link_button" href="/instructors/<%= instructor.id %>">Show details</a></p>
   <hr>
   <% end %>
 </section>

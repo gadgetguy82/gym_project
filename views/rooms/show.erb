@@ -14,9 +14,9 @@
 <section>
   <p><%= @room.name %></p>
   <p><%= @room.capacity %></p>
-  <p><a href="/rooms/<%= @room.id %>/edit">Edit room</a></p>
+  <p><a class="link_button" href="/rooms/<%= @room.id %>/edit">Edit room</a></p>
   <br>
   <form action="/rooms/<%= @room.id %>/delete" method="post">
-    <input class="view_button" type="submit" value="Delete room">
+    <input class="view_button delete" type="submit" value="Delete room">
   </form>
 </section>
