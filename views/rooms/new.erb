@@ -22,7 +22,7 @@
     <p>
     <label for="capacity">Room capacity:</label>
     <input type="number" name="capacity" id="capacity"
-    value="<%= @room.capacity if @room %>" required>
+    value="<%= @room.capacity if @room %>" min="0" required>
     </p>
 
     <input type="submit" value="Save room">
