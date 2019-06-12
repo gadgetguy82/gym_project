@@ -59,8 +59,10 @@
 
     <p>
       <label for="membership">Membership Type:</label>
-      <input type="text" name="membership" id="membership"
-      value="<%= @member.membership if @member %>" required>
+      <select name="membership" id="membership" required>
+        <option value="Standard" <%= "selected" if @member.membership == "Standard" %>>Standard</option>
+        <option value="Premium" <%= "selected" if @member.membership == "Premium" %>>Premium</option>
+      </select>
     </p>
 
     <input type="submit" value="Save Details">
