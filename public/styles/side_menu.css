@@ -1,12 +1,11 @@
 .side_nav {
   height: 100%;
-  width: 180px;
+  width: 15%;
   position: fixed;
   top: 0;
   left: 0;
   background: linear-gradient(to bottom right, #003399, #0099CC);
   overflow: auto;
-  z-index: 1; /* Side menu should be top most element */
 }
 
 .side_nav ul {

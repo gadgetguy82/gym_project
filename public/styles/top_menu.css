@@ -1,6 +1,7 @@
 .top_nav {
   top: 0;
-  width: 100%;
+  right: 0;
+  width: 85%;
   position: fixed;
 }
 

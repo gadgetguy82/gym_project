@@ -1,9 +1,20 @@
 <nav class="top_nav">
   <ul>
     <li><a href="/about_us">About Us</a></li>
+    <li><a href="/gyms/show">View Peak Hours</a></li>
   </ul>
 </nav>
 
 <section>
-  
+  <form action="/gyms/<%= @gym.id %>/edit">
+    <p>
+      <label for="start-peak">Set starting peak hour:</label>
+      <input type="time" name="start_peak" id="start-peak" value="<% if @gym %><%= @gym.start_peak %>">
+    </p>
+
+    <p>
+      <label for="stop-peak">Set ending peak hour:</label>
+      <input type="time" name="stop_peak" id="stop-peak" value="<% if @gym %><%= @gym.stop_peak %>">
+    </p>
+  </form>
 </section>

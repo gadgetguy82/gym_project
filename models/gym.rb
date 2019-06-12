@@ -50,6 +50,10 @@ class Gym
     return Gym.new(gym_data)
   end
 
+  def self.return_this_gym
+    return self.all[0]
+  end
+
   def self.delete_all
     sql = "DELETE FROM gyms"
     SqlRunner.run(sql)

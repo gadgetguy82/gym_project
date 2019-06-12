@@ -1,9 +1,16 @@
 <nav class="top_nav">
   <ul>
     <li><a href="/about_us">About Us</a></li>
+    <li><a href="/gyms/<%= @gym.id %>/edit">Set Peak Hours</a></li>
   </ul>
 </nav>
 
 <section>
+  <p>
+    Starting peak hour: <%= @gym.start_peak %>
+  </p>
 
+  <p>
+    Ending peak hour: <%= @gym.stop_peak %>
+  </p>
 </section>
