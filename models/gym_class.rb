@@ -181,4 +181,10 @@ class GymClass
     return Date.today
   end
 
+  def self.get_matching_types(search)
+    gym_classes = GymClass.all
+    return gym_classes.find_all{|gym_class| gym_class.type.include?(search)
+    }
+  end
+
 end

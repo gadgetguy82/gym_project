@@ -32,6 +32,11 @@ get "/gym_classes/upcoming" do
   erb(:"gym_classes/upcoming")
 end
 
+post "/gym_classes/search" do
+  @gym_classes = GymClass.get_matching_types
+  erb(:"gym_classes/index")
+end
+
 get "/gym_classes/:id" do
   @gym_class = GymClass.find(params[:id])
   erb(:"gym_classes/show")
