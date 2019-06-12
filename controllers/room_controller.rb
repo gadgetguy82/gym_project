@@ -33,3 +33,9 @@ post "/rooms/:id/edit" do
   @room.update
   erb(:"rooms/show")
 end
+
+post "/rooms/:id/delete" do
+  @room = Room.find(params[:id])
+  @room.delete
+  redirect to("/rooms")
+end

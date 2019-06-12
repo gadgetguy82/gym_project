@@ -1,6 +1,7 @@
 require("sinatra")
 require("sinatra/contrib/all")
 require_relative("../models/member")
+require_relative("../models/gym_class")
 also_reload("../models/*")
 
 get "/members" do
@@ -9,6 +10,7 @@ get "/members" do
 end
 
 get "/members/new" do
+  @date = GymClass.today
   erb(:"members/new")
 end
 
