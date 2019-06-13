@@ -113,8 +113,8 @@ class GymClass
     sql = "SELECT i.* FROM instructors i
     INNER JOIN gym_classes gc ON i.id = gc.instructor_id
     WHERE i.id = $1 AND gc.date_time <= $2
-    AND gc.date_time + gc.duration >= $2 AND gc.id != $3"
-    values = [@instructor_id, @date_time, @id]
+    AND gc.date_time + gc.duration >= $2"
+    values = [@instructor_id, @date_time]
     instructors_data = SqlRunner.run(sql, values)
     return Instructor.map_items(instructors_data)
   end

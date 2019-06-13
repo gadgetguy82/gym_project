@@ -6,7 +6,7 @@
 
 <section>
   <% @bookings.each do |booking| %>
-  <p><%= booking.member.pretty_name %> reserved a place for <%= booking.gym_class.type %></p>
+  <p><%= booking.member.pretty_name %> reserved a place in <%= booking.gym_class.type %></p>
   <p>on <%= booking.gym_class.pretty_date %> at <%= booking.gym_class.time %></p>
   <br>
   <form action="/bookings/<%= booking.id %>/delete" method="post">
