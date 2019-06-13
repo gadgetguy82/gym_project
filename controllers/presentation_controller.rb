@@ -24,3 +24,15 @@ end
 get "/presentation/gym" do
   erb(:"presentation/gym")
 end
+
+get "/presentation/dry" do
+  erb(:"presentation/dry")
+end
+
+get "/presentation/restful" do
+  erb(:"presentation/restful")
+end
+
+get "/presentation/end" do
+  erb(:"presentation/end")
+end

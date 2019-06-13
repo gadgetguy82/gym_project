@@ -103,6 +103,30 @@ times = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00",
 durations = ["1 hour", "50 minutes", "40 minutes", "30 minutes"]
 
 gym_classes = []
+gym_classes.push(
+  GymClass.new(
+    {
+      "type" => types.sample,
+      "start_date" => "2019-04-23",
+      "start_time" => times.sample,
+      "duration" => durations.sample,
+      "room_id" => rooms.sample.id,
+      "instructor_id" => instructors.sample.id
+    }
+  )
+)
+gym_classes.push(
+  GymClass.new(
+    {
+      "type" => types.sample,
+      "start_date" => "2019-06-23",
+      "start_time" => "11:00",
+      "duration" => durations.sample,
+      "room_id" => rooms.sample.id,
+      "instructor_id" => instructors.sample.id
+    }
+  )
+)
 gym_class_quantity.times{
   gym_classes.push(
     GymClass.new(

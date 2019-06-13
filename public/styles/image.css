@@ -2,6 +2,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 15%;
   height: 100%;
 }
 
@@ -15,18 +16,38 @@
 
 .db {
   content: url("../images/gym_classes_table.png");
+  width: 80%;
 }
 
 .constraints {
-  content: url("../images/gym_class_constraint.png");
+  content: url("../images/gym_class_constraints.png");
+  width: 80%;
 }
 
 .query {
   content: url("../images/sql_query.png");
+  width: 80%;
 }
 
 .gym {
   content: url("../images/create_gym_class.png");
+}
+
+.dry {
+  content: url("../images/dry.png");
+  width: 80%;
+}
+
+.restful {
+  content: url("../images/restful.png");
+  width: 80%;
+}
+
+.list p {
+  padding-top: 60px;
+  font-size: 50px;
+  font-family: 'Lalezar', cursive;
+  text-align: center;
 }
 
 .presentation {
@@ -37,6 +58,11 @@
   width: 100%;
 }
 
+li.left {
+  float: left;
+}
+
 li.right {
+  float: right;
   padding-right: 20px;
 }
