@@ -5,6 +5,7 @@
 </nav>
 
 <section>
+  <span class="data">
   <% @bookings.each do |booking| %>
   <p><%= booking.member.pretty_name %> reserved a place in <%= booking.gym_class.type %></p>
   <p>on <%= booking.gym_class.pretty_date %> at <%= booking.gym_class.time %></p>
@@ -12,6 +13,6 @@
   <form action="/bookings/<%= booking.id %>/delete" method="post">
     <input class="view_button delete" type="submit" value="Cancel booking">
   </form>
-  <hr>
   <% end %>
+  </span>
 </section>

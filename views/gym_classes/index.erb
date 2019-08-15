@@ -13,6 +13,7 @@
 </nav>
 
 <section>
+  <span class="data">
   <% @gym_classes.each do |gym_class| %>
   <p><%= gym_class.type %> Class</p>
   <p><%= gym_class.pretty_date_time %></p>
@@ -21,6 +22,6 @@
   <p>Run by instructor <%= gym_class.instructor.pretty_name %></p>
   <p>in room <%= gym_class.room.name %></p>
   <p><a class="link_button" href="/gym_classes/<%= gym_class.id %>">Show details</a></p>
-  <hr>
   <% end %>
+  </span>
 </section>

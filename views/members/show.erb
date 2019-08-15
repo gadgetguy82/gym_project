@@ -14,6 +14,7 @@
 </nav>
 
 <section>
+  <span class="data">
   <p><%= @member.pretty_name %></p>
   <p><%= @member.pretty_date %></p>
   <p><%= @member.pretty_address %></p>
@@ -28,4 +29,5 @@
   <form action="/members/<%= @member.id %>/delete" method="post">
     <input class="view_button delete" type="submit" value="Delete Member">
   </form>
+  </span>
 </section>

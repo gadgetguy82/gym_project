@@ -12,6 +12,7 @@
 </nav>
 
 <section>
+  <span class="data">
   <p>Room Name: <%= @room.name %></p>
   <p>Room Capacity: <%= @room.capacity %></p>
   <p><a class="link_button" href="/rooms/<%= @room.id %>/edit">Edit room</a></p>
@@ -19,4 +20,5 @@
   <form action="/rooms/<%= @room.id %>/delete" method="post">
     <input class="view_button delete" type="submit" value="Delete room">
   </form>
+  </span>
 </section>

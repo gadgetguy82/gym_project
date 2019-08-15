@@ -12,9 +12,10 @@
 </nav>
 
 <section>
+  <div class="data">
   <% @instructors.each do |instructor| %>
   <p>Instructor Name: <%= instructor.pretty_name %></p>
   <p><a class="link_button" href="/instructors/<%= instructor.id %>">Show details</a></p>
-  <hr>
   <% end %>
+  </div>
 </section>

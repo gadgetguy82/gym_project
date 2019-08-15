@@ -4,9 +4,21 @@ html {
 }
 
 section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   padding: 10px;
   padding-top: 50px;
-  margin-left: 180px; /* Keep contents away from side nav */
+  margin-left: 220px; /* Keep contents away from side nav */
+}
+
+span {
+  background-color: #00FFFF;
+  border-radius: 10px;
+  box-shadow: 5px 5px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #000000;
 }
 
 p {

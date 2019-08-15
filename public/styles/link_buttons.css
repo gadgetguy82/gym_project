@@ -5,6 +5,7 @@
   background: none;
   border: none;
   border-radius: 25px;
+  box-shadow: 0 5px;
   background-color: #90EE90;
   color: #000000;
   font-size: 20px;
@@ -20,6 +21,7 @@
   background: none;
   border: none;
   border-radius: 25px;
+  box-shadow: 0 5px;
   background-color: #90EE90;
   color: #000000;
   font-size: 20px;
@@ -30,4 +32,28 @@
 
 .delete {
   background-color: #FF6347;
+}
+
+.link_button:hover {background-color: #3E8E41}
+
+.link_button:active {
+  background-color: #3E8E41;
+  box-shadow: 0 5px #666666;
+  transform: translateY(4px);
+}
+
+.view_button:hover {background-color: #3E8E41}
+
+.view_button:active {
+  background-color: #3E8E41;
+  box-shadow: 0 5px #666666;
+  transform: translateY(4px);
+}
+
+.delete:hover {background-color: #FF0000}
+
+.delete:active {
+  background-color: #FF0000
+  box-shadow: 0 5px #666666;
+  transform: translateY(4px);
 }
