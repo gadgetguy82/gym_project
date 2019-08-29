@@ -1,8 +1,7 @@
 require("sinatra")
-require("sinatra/contrib/all")
+require("sinatra/contrib/all") if development?
 require_relative("../models/member")
 require_relative("../models/gym_class")
-also_reload("../models/*")
 
 get "/members" do
   @members = Member.all

@@ -1,7 +1,6 @@
 require("sinatra")
-require("sinatra/contrib/all")
+require("sinatra/contrib/all") if development?
 require_relative("../models/gym")
-also_reload("../models/*")
 
 get "/gyms/show" do
   @gym = Gym.return_this_gym

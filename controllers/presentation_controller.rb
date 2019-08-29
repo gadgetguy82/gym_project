@@ -1,5 +1,5 @@
 require("sinatra")
-require("sinatra/contrib/all")
+require("sinatra/contrib/all") if development?
 
 get "/presentation" do
   erb(:"presentation/class_diagram")
